@@ -14,15 +14,24 @@ export function Header() {
     <Container>
       <DesktopContainer>
         <Title>RANKAA</Title>
+        <SearchBox>
+          <FiSearch />
+          <SearchInput
+            type="text"
+            placeholder="Pesquise uma atlética, jogo ou modalidade"
+          />
+        </SearchBox>
         <Button>Organização</Button>
       </DesktopContainer>
-      <SearchBox>
-        <FiSearch />
-        <SearchInput
-          type="text"
-          placeholder="Pesquise uma atlética, jogo ou modalidade"
-        />
-      </SearchBox>
+      <div id="mobile">
+        <SearchBox>
+          <FiSearch />
+          <SearchInput
+            type="text"
+            placeholder="Pesquise uma atlética, jogo ou modalidade"
+          />
+        </SearchBox>
+      </div>
     </Container>
   );
 }

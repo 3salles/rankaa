@@ -1,14 +1,29 @@
 import styled from "styled-components";
 
 export const Container = styled.header`
+  width: 100%;
   padding: 20px 36px;
+  #mobile {
+    @media(min-width: 768px){
+    display: none;
+  }
+  }
 `
 
 export const DesktopContainer = styled.div`
+  width: 100%;
   display: flex;
   align-items: center;
   justify-content: space-between;
   margin-bottom: 2rem;
+  gap: 64px;
+
+  @media(max-width: 768px){
+    gap: 0;
+    > div {
+      display: none;
+    }  
+  }
 `
 
 export const Title = styled.h1`
@@ -36,6 +51,10 @@ export const SearchBox = styled.div`
     color: white;
     height: 18px;
     width: 18px;
+  } 
+  
+  @media(min-width: 768px) {
+    height: 40px;
   }
 `
 
