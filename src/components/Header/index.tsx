@@ -1,10 +1,28 @@
-import { Container, Title, Button } from "./styles"
+import { FiSearch } from "react-icons/fi";
 
-export function Header () {
+import {
+  Container,
+  DesktopContainer,
+  Title,
+  Button,
+  SearchBox,
+  SearchInput,
+} from "./styles";
+
+export function Header() {
   return (
     <Container>
-      <Title>RANKAA</Title>
-      <Button>Organização</Button>
+      <DesktopContainer>
+        <Title>RANKAA</Title>
+        <Button>Organização</Button>
+      </DesktopContainer>
+      <SearchBox>
+        <FiSearch />
+        <SearchInput
+          type="text"
+          placeholder="Pesquise uma atlética, jogo ou modalidade"
+        />
+      </SearchBox>
     </Container>
-  )
+  );
 }
