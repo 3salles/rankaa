@@ -1,6 +1,19 @@
+import { BrowserRouter, Route, Switch } from 'react-router-dom';
+
+import { Home } from './pages/Home';
+
+import { GlobalStyle } from "./styles/global";
+
 export function App() {
   return (
-    <h1>RANKAA</h1>
+    <>
+    <GlobalStyle />
+    <BrowserRouter>
+    <Switch>
+      <Route path="/" exact component={Home}></Route>
+    </Switch>
+    </BrowserRouter>
+    </>
   );
 }
 
