@@ -1,6 +1,7 @@
 import { CardGame } from "../../components/CardGame";
 import { Header } from "../../components/Header";
 import { Container, Title, Section } from "./styles";
+import games from "../../utils/games.json"
 
 export function Home() {
   return (
@@ -10,7 +11,9 @@ export function Home() {
         <section>
           <Title>Quartas de Finais</Title>
           <Section>
-            <CardGame />
+            {games?.map((game) => (
+              <CardGame key={game.id} game={game}/>
+            ))}
           </Section>
         </section>
       </Container>
