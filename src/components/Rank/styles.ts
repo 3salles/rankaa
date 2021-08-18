@@ -22,11 +22,11 @@ export const Container = styled.table`
     padding: 1rem;
     font-size: 1rem;
     color: var(--text);
-    
-    &:nth-child(){
-      border-bottom: 1px solid #181829;
-    }
   }
+
+  @media(min-width: 768px){
+      text-align: left;
+    }
 `
 
 export const TeamContainer = styled.td`

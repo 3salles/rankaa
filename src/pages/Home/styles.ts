@@ -3,9 +3,16 @@ import styled from "styled-components";
 export const Container = styled.section`
   padding: 0 2.25rem 8rem;
 
+  .section {
+    width: 100%;
+  }
+
   .section + .section {
     margin-top: 2rem;
-    width: 100%;
+  }
+
+  div + .section {
+    margin-top: 2rem;
   }
 
   #results {
@@ -15,17 +22,19 @@ export const Container = styled.section`
     gap: 1rem;
   }
 
-  .desktop{
+  @media(min-width: 768px){
     display: flex;
-    align-items: center;
-    justify-content: space-between;
     gap: 4rem;
 
-    @media(max-width: 768px){
-      flex-direction: column;
-      gap: 0;
+    .desktop {
+      max-width: 50%;
+    }
+
+    #results {
+      align-items: flex-start;
     }
   }
+
 `
 
 export const Title = styled.h2`
@@ -45,6 +54,10 @@ export const RightButton = styled.button`
   > svg {
     width: 20px;
     height: 20px;
+  }
+
+  @media(min-width: 768px){
+    display: none;
   }
 `
 

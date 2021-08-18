@@ -22,6 +22,8 @@ export function Home() {
     <>
       <Header />
       <Container>
+        
+        <div className="desktop">
         <section className="section">
           <Title>Quartas de Finais</Title>
           <BackgroundSection>
@@ -32,7 +34,6 @@ export function Home() {
             </Section>
           </BackgroundSection>
         </section>
-        <div className="desktop">
           <section className="section">
             <Title>
               <span>Resultados</span>
@@ -46,7 +47,9 @@ export function Home() {
               ))}
             </div>
           </section>
-          <section className="section">
+         
+        </div>
+        <section className="section">
             <Title>
               <span>Rank</span>
               <RightButton title="Ver rank completo">
@@ -55,7 +58,6 @@ export function Home() {
             </Title>
             <Rank athletics={athletics} />
           </section>
-        </div>
       </Container>
       <Navbar />
     </>
