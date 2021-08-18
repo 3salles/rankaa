@@ -14,8 +14,8 @@ import {
 } from "./styles";
 
 import games from "../../utils/games.json";
-import athletics from '../../utils/athletics.json'
-
+import athletics from "../../utils/athletics.json";
+import { Navbar } from "../../components/Navbar";
 
 export function Home() {
   return (
@@ -55,6 +55,7 @@ export function Home() {
           <Rank athletics={athletics} />
         </section>
       </Container>
+      <Navbar />
     </>
   );
 }
