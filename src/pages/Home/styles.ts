@@ -2,6 +2,10 @@ import styled from "styled-components";
 
 export const Container = styled.section`
   padding: 0 2.25rem;
+
+  .section + .section {
+    margin-top: 2rem;
+  }
 `
 
 export const Title = styled.h2`
@@ -9,7 +13,21 @@ export const Title = styled.h2`
   font-size: 1.125rem;
   line-height: 1.25rem;
   margin-bottom: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
 `
+
+export const RightButton = styled.button`
+  background: 0;
+  color: white;
+
+  > svg {
+    width: 20px;
+    height: 20px;
+  }
+`
+
 export const BackgroundSection = styled.article`
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.3);
