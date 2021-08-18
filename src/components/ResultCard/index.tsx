@@ -1,37 +1,42 @@
 import { Container, Content, TeamLogo, Result, Sport } from "./styles";
 
-export function ResultCard() {
+import { GameData } from '../CardGame/index';
+
+interface ResultCardProps {
+  game: GameData;
+}
+
+export function ResultCard( { game }: ResultCardProps) {
   return (
     <Container>
       <Content>
         <TeamLogo
-          src="https://img.icons8.com/color/50/000000/barcelona-fc.png"
-          alt=""
+          src={game?.opponents[0]?.avatar}
+          alt={`Brasão ${game?.opponents[0]?.name}`}
         />
         <Result>
           <div>
-            <p>Atlética</p>
-            <span>2</span>
+            <p>{game?.opponents[0]?.name}</p>
+            <span>{game?.opponents[0]?.score}</span>
           </div>
           <div>
             <p>vs</p>
             <span>-</span>
           </div>
           <div>
-            <p>Atlética</p>
-            <span>3</span>
+            <p>{game?.opponents[1]?.name}</p>
+            <span>{game?.opponents[1]?.score}</span>
           </div>
         </Result>
         <TeamLogo
-          src="https://img.icons8.com/color/48/000000/chelsea-fc.png"
-          alt=""
+          src={game?.opponents[1]?.avatar}
+          alt={`Brasão ${game?.opponents[1]?.name}`}
         />
-        
       </Content>
-      <Sport>
+      <Sport title={game?.sport?.name}>
         <img
-          src="https://img.icons8.com/emoji/48/000000/basketball-emoji.png"
-          alt=""
+          src={game?.sport?.logo}
+          alt={game?.sport?.name}
         />
       </Sport>
     </Container>

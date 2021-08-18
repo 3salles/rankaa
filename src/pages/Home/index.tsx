@@ -36,7 +36,11 @@ export function Home() {
               <IoIosArrowForward />
             </RightButton>
           </Title>
-          <ResultCard />
+          <div id="results">
+            {games.map((game) => (
+              <ResultCard key={game.id} game={game} />
+            ))}
+          </div>
         </section>
       </Container>
     </>

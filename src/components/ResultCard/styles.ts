@@ -3,6 +3,10 @@ import styled from "styled-components";
 export const Container = styled.article`
   display: flex;
   align-items: center;
+  
+  &:nth-child(even){
+    display: none;
+  }
 `
 
 export const Content = styled.div`
@@ -12,6 +16,7 @@ export const Content = styled.div`
   background: #2B2B3D;
   padding: 1rem;
   border-radius: 16px 0px 0px 16px;
+  gap: 1rem;
 `
 
 export const TeamLogo = styled.img`
@@ -43,7 +48,9 @@ export const Result = styled.div`
 export const Sport = styled.div`
   background: #222232;
   border-radius: 0px 16px 16px 0px;
-  padding: 1rem;
+  display: flex;
+  align-items: center;
+  padding: 1.2rem;
 
   > img {
     width: 32px;

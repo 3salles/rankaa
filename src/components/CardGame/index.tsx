@@ -16,10 +16,16 @@ interface Opponents {
   id: number;
   name: string;
   avatar: string;
+  score: number;
 }
-interface GameData {
+
+interface Sport {
+  name: string;
+  logo: string;
+}
+export interface GameData {
   id: number;
-  sport: string;
+  sport: Sport;
   location: string;
   opponents: Opponents[];
   date: string;
@@ -42,10 +48,10 @@ export function CardGame({ game }: CardGameProps) {
         <Tag>
           {/* TODO: Add other sports icons */}
           <img
-            src="https://img.icons8.com/fluency/48/000000/football2.png"
-            alt={`ícone de ${game?.sport}`}
+            src={game?.sport?.logo}
+            alt={`ícone de ${game?.sport?.name}`}
           />
-          <span>{game?.sport}</span>
+          <span>{game?.sport?.name}</span>
         </Tag>
         <Location title="Localização" onClick={handleShowLocation}>
           <ImLocation />

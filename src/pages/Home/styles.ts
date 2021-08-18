@@ -6,6 +6,13 @@ export const Container = styled.section`
   .section + .section {
     margin-top: 2rem;
   }
+
+  #results {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1rem;
+  }
 `
 
 export const Title = styled.h2`
