@@ -5,6 +5,7 @@ export const Container = styled.section`
 
   .section + .section {
     margin-top: 2rem;
+    width: 100%;
   }
 
   #results {
@@ -12,6 +13,18 @@ export const Container = styled.section`
     flex-direction: column;
     align-items: center;
     gap: 1rem;
+  }
+
+  .desktop{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 4rem;
+
+    @media(max-width: 768px){
+      flex-direction: column;
+      gap: 0;
+    }
   }
 `
 
