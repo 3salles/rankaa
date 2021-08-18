@@ -57,6 +57,7 @@ export const Location = styled.button`
     font-size: 0.75rem;
     width: 150px;
     border-radius: 4px;
+    z-index: 9999;
   }
 `
 
@@ -69,6 +70,11 @@ export const Body = styled.article`
 export const TeamContainer = styled.div`
   font-size: 14px;
   color: var(--text);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
 `
 
 export const TeamLogo = styled.img`

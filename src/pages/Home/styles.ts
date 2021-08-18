@@ -10,11 +10,13 @@ export const Title = styled.h2`
   line-height: 1.25rem;
   margin-bottom: 0.75rem;
 `
-
-export const Section = styled.article`
+export const BackgroundSection = styled.article`
   border-radius: 16px;
   background: rgba(0, 0, 0, 0.3);
-  padding: 1.25rem 1.5rem;
+  padding: 1.25rem 1rem;
+`
+
+export const Section = styled.div`
   display: flex;
   gap: 1rem;
   width: 100%;
