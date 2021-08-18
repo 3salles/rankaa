@@ -1,6 +1,20 @@
+import { useState } from 'react';
 import { Container, TeamLogo, TeamContainer } from './styles'
 
-export function Rank() {
+interface Athletic {
+  id: number;
+  name: string;
+  logo: string;
+  points: number;
+}
+
+interface RankProps {
+  athletics: Athletic[];
+}
+
+export function Rank({athletics}: RankProps) {
+  const [score, setScore] = useState(0);
+
   return (
     <Container>
       <thead>
@@ -11,18 +25,20 @@ export function Rank() {
         </tr>
       </thead>
       <tbody>
-        {/* Colocar o map aqui */}
-        <tr>
-          <td>1</td>
+        {athletics.map((athletic) => (
+          <tr key={athletic.id}>
+          <td>{athletic.id + 1}</td>
           <TeamContainer>
             <TeamLogo
-              src="https://img.icons8.com/color/48/000000/liverpool-fc.png"
-              alt=""
+              src={athletic?.logo}
+              alt={athletic?.name}
             />
-            <p>Atlética</p>
+            <p>{athletic?.name}</p>
           </TeamContainer>
-          <td>25</td>
+          <td>{athletic?.points}</td>
         </tr>
+        ))}
+        
       </tbody>
     </Container>
   );

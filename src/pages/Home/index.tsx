@@ -1,6 +1,8 @@
 import { IoIosArrowForward } from "react-icons/io";
 
 import { CardGame } from "../../components/CardGame";
+import { ResultCard } from "../../components/ResultCard";
+import { Rank } from "../../components/Rank";
 import { Header } from "../../components/Header";
 
 import {
@@ -12,8 +14,8 @@ import {
 } from "./styles";
 
 import games from "../../utils/games.json";
-import { ResultCard } from "../../components/ResultCard";
-import { Rank } from "../../components/Rank";
+import athletics from '../../utils/athletics.json'
+
 
 export function Home() {
   return (
@@ -50,7 +52,7 @@ export function Home() {
               <IoIosArrowForward />
             </RightButton>
           </Title>
-          <Rank />
+          <Rank athletics={athletics} />
         </section>
       </Container>
     </>
