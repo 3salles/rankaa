@@ -11,7 +11,8 @@ export const GlobalStyle = createGlobalStyle`
 
     --input-background: #E7E9EE;
 
-    --background: #29043D;;
+    --background: #29043D;
+    --card-color: #2B2B3D;
   }
 
   * {
@@ -42,6 +43,7 @@ export const GlobalStyle = createGlobalStyle`
 
   h1, h2, h3, h4, h5, h6, strong {
     font-weight: 600;
+    color: var(--text);
   }
 
   button {
