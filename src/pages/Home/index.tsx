@@ -13,6 +13,7 @@ import {
 
 import games from "../../utils/games.json";
 import { ResultCard } from "../../components/ResultCard";
+import { Rank } from "../../components/Rank";
 
 export function Home() {
   return (
@@ -41,6 +42,15 @@ export function Home() {
               <ResultCard key={game.id} game={game} />
             ))}
           </div>
+        </section>
+        <section className="section">
+          <Title>
+            <span>Rank</span>
+            <RightButton title="Ver rank completo">
+              <IoIosArrowForward />
+            </RightButton>
+          </Title>
+          <Rank />
         </section>
       </Container>
     </>
