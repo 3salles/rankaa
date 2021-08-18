@@ -2,7 +2,7 @@ import { IoHomeSharp } from "react-icons/io5";
 import { GiWhistle, GiAttachedShield } from "react-icons/gi";
 import { BsBarChartFill } from "react-icons/bs";
 
-import { useHistory, useLocation, useParams } from "react-router-dom";
+import { useHistory, useLocation } from "react-router-dom";
 
 import { Container, Button } from "./styles";
 
