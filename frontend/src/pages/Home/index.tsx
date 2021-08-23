@@ -3,7 +3,7 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CardGame } from "../../components/CardGame";
 import { ResultCard } from "../../components/ResultCard";
 import { Rank } from "../../components/Rank";
-import { Header } from "../../components/Header";
+
 
 import {
   Container,
@@ -16,7 +16,7 @@ import {
 
 import games from "../../utils/games.json";
 import athletics from "../../utils/athletics.json";
-import { Navbar } from "../../components/Navbar";
+
 import { AppLayout } from "../../layouts/AppLayout";
 
 export function Home() {
