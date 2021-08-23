@@ -57,19 +57,6 @@ export const Title = styled.h2`
   justify-content: space-between;
 `
 
-export const RightButton = styled.button`
-  background: 0;
-  color: white;
-
-  > svg {
-    width: 20px;
-    height: 20px;
-  }
-
-  @media(min-width: 768px){
-    display: none;
-  }
-`
 
 export const BackgroundSection = styled.article`
   border-radius: 16px;

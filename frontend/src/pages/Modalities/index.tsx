@@ -1,10 +1,15 @@
-import { CardGame } from "../../components/CardGame";
 import { AppLayout } from "../../layouts/AppLayout";
-import { Container, Title, BackgroundSection, Section } from "./styles/index";
-import games from "../../utils/games.json";
-import athletics from "../../utils/athletics.json";
+
 import { Rank } from "../../components/Rank";
 import { ResultCard } from "../../components/ResultCard";
+import { RightButton } from "../../components/RightButton";
+import { CardGame } from "../../components/CardGame";
+
+import { Container, Title, BackgroundSection, Section } from "./styles/index";
+
+import games from "../../utils/games.json";
+import athletics from "../../utils/athletics.json";
+
 
 export function Modalities() {
   return (
@@ -23,7 +28,7 @@ export function Modalities() {
         <section className="section">
           <Title>
             <span>Resultados</span>
-            
+            <RightButton />
           </Title>
           <div id="results">
             {games.map((game) => (
@@ -34,9 +39,7 @@ export function Modalities() {
         <section className="section">
           <Title>
             <span>Rank</span>
-            {/* <RightButton title="Ver rank completo">
-              <IoIosArrowForward />
-            </RightButton> */}
+            <RightButton />
           </Title>
           <Rank athletics={athletics} />
         </section>
