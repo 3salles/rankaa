@@ -11,6 +11,7 @@ import {
   Section,
   BackgroundSection,
   RightButton,
+  Banner,
 } from "./styles";
 
 import games from "../../utils/games.json";
@@ -22,6 +23,9 @@ export function Home() {
     <>
       <Header />
       <Container>
+        <Banner>
+          <img src="https://images.unsplash.com/photo-1561542313-b23c8ff631f9?ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&ixlib=rb-1.2.1&auto=format&fit=crop&w=1502&q=80" alt="Olimpics" />
+        </Banner>
         
         <div className="desktop">
         <section className="section">

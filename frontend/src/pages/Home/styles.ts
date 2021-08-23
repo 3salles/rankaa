@@ -37,6 +37,16 @@ export const Container = styled.section`
 
 `
 
+export const Banner = styled.div`
+  margin-bottom: 1rem;
+  
+  > img {
+    border-radius: 16px;
+    width: 320px;
+    height: 160px;
+  }
+`
+
 export const Title = styled.h2`
   font-family: Source Sans Pro;
   font-size: 1.125rem;
