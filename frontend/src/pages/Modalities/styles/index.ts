@@ -34,17 +34,6 @@ export const Container = styled.section`
       align-items: flex-start;
     }
   }
-
-`
-
-export const Banner = styled.div`
-  margin-bottom: 1rem;
-  
-  > img {
-    border-radius: 16px;
-    width: 320px;
-    height: 160px;
-  }
 `
 
 export const Title = styled.h2`
@@ -56,7 +45,6 @@ export const Title = styled.h2`
   align-items: center;
   justify-content: space-between;
 `
-
 
 export const BackgroundSection = styled.article`
   border-radius: 16px;

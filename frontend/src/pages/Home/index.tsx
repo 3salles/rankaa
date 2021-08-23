@@ -3,21 +3,21 @@ import { IoIosArrowForward } from "react-icons/io";
 import { CardGame } from "../../components/CardGame";
 import { ResultCard } from "../../components/ResultCard";
 import { Rank } from "../../components/Rank";
-import { Header } from "../../components/Header";
+
 
 import {
   Container,
   Title,
   Section,
   BackgroundSection,
-  RightButton,
   Banner,
 } from "./styles";
 
 import games from "../../utils/games.json";
 import athletics from "../../utils/athletics.json";
-import { Navbar } from "../../components/Navbar";
+
 import { AppLayout } from "../../layouts/AppLayout";
+import { RightButton } from "../../components/RightButton";
 
 export function Home() {
   return (
@@ -44,9 +44,7 @@ export function Home() {
           <section className="section">
             <Title>
               <span>Resultados</span>
-              <RightButton title="Ver mais resultados">
-                <IoIosArrowForward />
-              </RightButton>
+              <RightButton />
             </Title>
             <div id="results">
               {games.map((game) => (
@@ -58,9 +56,7 @@ export function Home() {
         <section className="section">
           <Title>
             <span>Rank</span>
-            <RightButton title="Ver rank completo">
-              <IoIosArrowForward />
-            </RightButton>
+            <RightButton />
           </Title>
           <Rank athletics={athletics} />
         </section>
