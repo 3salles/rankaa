@@ -9,6 +9,8 @@ export const Container = styled.section`
   max-width: 340px;
   margin-bottom: 1.5rem;
   display: flex;
+  align-items: center;
+  justify-content: center;
   gap: 1rem;
   overflow-x: auto;
 
