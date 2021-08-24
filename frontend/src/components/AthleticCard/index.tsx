@@ -1,18 +1,18 @@
 import { IoIosArrowForward } from "react-icons/io";
-import { Container } from './styles'
+import { Container, TeamLogo, TeamName, Button } from './styles'
 
 export function AthleticCard() {
   return (
     <Container>
-      <img
+      <TeamLogo
         src="https://img.icons8.com/color/50/000000/barcelona-fc.png"
         alt="Barcelona"
       />
-      <p>Barcelona</p>
-      <button>
+      <TeamName>Barcelona</TeamName>
+      <Button>
         <p>Visualizar</p>
         <IoIosArrowForward />
-      </button>
+      </Button>
     </Container>
   );
 }
