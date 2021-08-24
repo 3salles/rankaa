@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+interface ButtonProps {
+  selected?: boolean;
+}
+
 export const Container = styled.section`
   padding: 0 2.25rem;
   max-width: 340px;
@@ -11,10 +15,13 @@ export const Container = styled.section`
   &::-webkit-scrollbar {
     background: 0;
   }
-`
+`;
 
-export const Button = styled.button`
-  background: linear-gradient(137.49deg, #F4A58A 0%, #ED6B4E 96.01%);
+export const Button = styled.button<ButtonProps>`
+  background: ${({ selected }) =>
+    selected
+      ? "linear-gradient(137.49deg, #F4A58A 0%, #ED6B4E 96.01%)"
+      : "#222232"};
   padding: 16px 24px;
   border-radius: 16px;
   display: flex;
@@ -26,4 +33,4 @@ export const Button = styled.button`
   font-size: 1.125rem;
   line-height: 1.4375rem;
   color: white;
-`
+`;
