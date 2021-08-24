@@ -1,7 +1,7 @@
 import { useState } from 'react';
 import { Container, TeamLogo, TeamContainer } from './styles'
 
-interface Athletic {
+export interface Athletic {
   id: number;
   name: string;
   logo: string;
