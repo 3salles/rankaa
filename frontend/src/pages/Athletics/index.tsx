@@ -3,15 +3,17 @@ import { AppLayout } from "../../layouts/AppLayout";
 
 import { Container, Amount, List } from './styles'
 
+import athletics from '../../utils/athletics.json'
+
 export function Athletics () {
   return (
     <AppLayout>
       <Container>
-      <Amount>Inscritas: <strong>10</strong> </Amount>
+      <Amount>Inscritas: <strong>{athletics.length}</strong> </Amount>
       <List>
-        <AthleticCard />
-        <AthleticCard />
-        <AthleticCard />
+        {athletics?.map((athletic) => (
+          <AthleticCard key={athletic.id} athletic={athletic} />
+        ))}
       </List>
       </Container>
     </AppLayout>
