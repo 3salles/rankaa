@@ -17,3 +17,9 @@ export const Amount = styled.p`
     font-weight: 600;
   }
 `
+
+export const List = styled.div`
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+`
