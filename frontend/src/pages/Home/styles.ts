@@ -39,11 +39,15 @@ export const Container = styled.section`
 
 export const Banner = styled.div`
   margin-bottom: 1rem;
+  height: 10rem;
+  left: 50%;
   
   > img {
     border-radius: 16px;
-    width: 320px;
-    height: 160px;
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center;
   }
 `
 

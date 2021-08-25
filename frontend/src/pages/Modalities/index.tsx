@@ -9,11 +9,13 @@ import { Container, Title, BackgroundSection, Section } from "./styles";
 
 import games from "../../utils/games.json";
 import athletics from "../../utils/athletics.json";
+import { SportsCarousel } from "../../components/SportsCarousel";
 
 
 export function Modalities() {
   return (
     <AppLayout>
+      <SportsCarousel />
       <Container>
         <section className="section">
           <Title>Quartas de Finais</Title>
