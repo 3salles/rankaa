@@ -5,15 +5,18 @@ interface ButtonProps {
 }
 
 export const Container = styled.section`
-  padding: 0 2.25rem;
-  max-width: 340px;
+  padding: 0 3rem;  
+  
   margin-bottom: 1.5rem;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  gap: 1rem;
-  overflow-x: auto;
 
+  > div {
+    width: 100%;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    gap: 1rem;
+    overflow-x: scroll;
+  }
   &::-webkit-scrollbar {
     background: 0;
   }
@@ -24,7 +27,7 @@ export const Button = styled.button<ButtonProps>`
     selected
       ? "linear-gradient(137.49deg, #F4A58A 0%, #ED6B4E 96.01%)"
       : "#222232"};
-  padding: 16px 24px;
+  padding: 1rem 1.5rem;
   border-radius: 16px;
   display: flex;
   flex-direction: column;
@@ -35,4 +38,9 @@ export const Button = styled.button<ButtonProps>`
   font-size: 1.125rem;
   line-height: 1.4375rem;
   color: white;
+
+  > img {
+    width: 32px;
+    height: 32px;
+  }
 `;

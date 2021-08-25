@@ -12,6 +12,7 @@ export function SportsCarousel() {
 
   return (
     <Container>
+      <div>
       {sports?.map((sport) => (
         <Button
           key={sport.id}
@@ -22,6 +23,7 @@ export function SportsCarousel() {
           <p>{sport.name}</p>
         </Button>
       ))}
+      </div>
     </Container>
   );
 }
