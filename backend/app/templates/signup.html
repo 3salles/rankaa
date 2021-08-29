@@ -1,0 +1,25 @@
+<html>
+    <head>
+        <title> Sign Up Page </title>
+    </head>
+    <body>
+        <h1>Sign Up</h1>
+        <form = '' method="POST">
+            <h2>nome completo</h2>
+            <input type="text" name="name">
+            <br>
+            <h2>email</h2>
+            <input type="email" name="email">
+            <br>
+            <h2>password</h2>
+            <input type="password" name="password">
+            <br>
+            <input type="submit" name="submit" value="Sign Up">
+        </form>
+        <div>
+            {% if msg %}
+            {{msg}}
+            {% endif %}
+        </div>
+    </body>
+</html>
