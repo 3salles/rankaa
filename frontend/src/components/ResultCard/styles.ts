@@ -32,6 +32,7 @@ export const Result = styled.div`
   gap: 1rem;
   color: var(--text);
   font-size: 1rem;
+  min-width: 11.25rem;
 
   > div {
     display: flex;
