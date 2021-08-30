@@ -6,21 +6,25 @@ export const Container = styled.section`
   padding: 1rem;
 `
 
-export const Card = styled.article`
+export const Card = styled.form`
   position: absolute;
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  padding: 40px;
-  background: rgba(255, 255, 255, 0.2);
-  border: 3px solid rgba(255, 255, 255, 0.4);
-  backdrop-filter: blur(20px);
+  padding: 1rem;
+  background: rgba(0, 0, 0, 0.3);
   border-radius: 10px;
   filter: drop-shadow(0px 8px 5px rgba(0, 0, 0, 0.8));
 
   display: flex;
   flex-direction: column;
   gap: 1rem;
+
+  > p {
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+  }
 `
 
 export const Header = styled.header`
