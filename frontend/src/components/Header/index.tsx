@@ -1,4 +1,5 @@
 import { FiSearch } from "react-icons/fi";
+import { useHistory } from "react-router-dom";
 
 import {
   Container,
@@ -10,6 +11,10 @@ import {
 } from "./styles";
 
 export function Header() {
+  const history = useHistory()
+  function handleOnClick() {
+    history.push('/auth/signin');
+  }
   return (
     <Container>
       <DesktopContainer>
@@ -21,7 +26,7 @@ export function Header() {
             placeholder="Pesquise uma atlética, jogo ou modalidade"
           />
         </SearchBox>
-        <Button>Organização</Button>
+        <Button onClick={handleOnClick}>Organização</Button>
       </DesktopContainer>
       <div id="mobile">
         <SearchBox>
