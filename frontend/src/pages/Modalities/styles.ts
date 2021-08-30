@@ -1,5 +1,9 @@
 import styled from "styled-components";
 
+export const SportButtonsContainer  = styled.div`
+  padding: 0 3rem;  
+`
+
 export const Container = styled.section`
   padding: 0 2.25rem 8rem;
 

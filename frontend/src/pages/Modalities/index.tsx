@@ -5,7 +5,7 @@ import { ResultCard } from "../../components/ResultCard";
 import { RightButton } from "../../components/RightButton";
 import { CardGame } from "../../components/CardGame";
 
-import { Container, Title, BackgroundSection, Section } from "./styles";
+import { Container, Title, BackgroundSection, Section, SportButtonsContainer } from "./styles";
 
 import games from "../../utils/games.json";
 import athletics from "../../utils/athletics.json";
@@ -15,7 +15,9 @@ import { SportsCarousel } from "../../components/SportsCarousel";
 export function Modalities() {
   return (
     <AppLayout>
+      <SportButtonsContainer>
       <SportsCarousel />
+      </SportButtonsContainer>
       <Container>
         <section className="section">
           <Title>Quartas de Finais</Title>
