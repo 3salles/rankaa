@@ -32,6 +32,14 @@ export const Title = styled.h1`
   line-height: 1.875rem;
 `
 
+export const Subtitle = styled.p`
+  font-family: Source Sans Pro;
+  font-weight: 400;
+  font-size: 1.25rem;
+  line-height: 1.875rem;
+  color: #FFF;
+`
+
 export const SocialMedias = styled.article`
   background: rgba(0, 0, 0, 0.3);
   border-radius: 20px;

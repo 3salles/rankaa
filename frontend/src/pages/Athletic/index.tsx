@@ -18,6 +18,7 @@ import {
   Column,
   SocialName,
   ResultSection,
+  Subtitle,
 } from "./styles";
 
 export function Athletic() {
@@ -27,6 +28,7 @@ export function Athletic() {
         <LogoContainer>
           <Logo src="https://img.icons8.com/color/96/000000/barcelona-fc.png" />
           <Title>Barcelona</Title>
+          <Subtitle>Ciência e Tecnologia</Subtitle>
         </LogoContainer>
 
         <SocialMedias>
