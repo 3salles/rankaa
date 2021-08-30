@@ -75,7 +75,7 @@ export function Register() {
         </PasswordInput>
         <p>{errors?.password?.message}</p>
         <Footer>
-          <button disabled={!isDirty || (isDirty && !isValid)}>
+          <button type="button" disabled={!isDirty || (isDirty && !isValid)}>
             Cadastrar
           </button>
           <p>
