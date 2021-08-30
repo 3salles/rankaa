@@ -50,7 +50,7 @@ export function Login() {
         </Header>
         <EmailInput>
           <GrMail />
-          <input type="text" placeholder="Seu email" {...register("email")} />
+          <input type="text" placeholder="E-mail" {...register("email")} />
         </EmailInput>
         <p>{errors?.email?.message}</p>
         <PasswordInput>
