@@ -45,7 +45,7 @@ export const EmailInput = styled.div`
   
   
   > input {
-    background: transparent;
+    background: none;
     border: 0;
     flex: 1;
     margin-left: 0.5rem;
