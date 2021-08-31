@@ -1,7 +1,7 @@
-from flask import Flask, render_template, request, redirect
+from app import app
+from flask import render_template, request, redirect, jsonify
 import sqlite3
 
-app = Flask(__name__)
 app.secret_key = 'mykey'
 
 @app.route('/')
@@ -14,9 +14,12 @@ def entrada():
 
 @app.route('/entrada/signup', methods = ['GET', 'POST'])
 def signup():
-    msg = None
     if request.method == 'POST':
-        if request.form['name'] != "" or request.form['password'] != "" or request.form['email'] != "":
+        email = {'email': request.json['email']}
+        name = {'name' : request.json['name']}
+        password = {'password' : request.json['password']}
+        return jsonify(email)
+        """if request.form['name'] != "" or request.form['password'] != "" or request.form['email'] != "":
             email = request.form['email']
             name = request.form['name']
             password = request.form['password']
@@ -25,15 +28,14 @@ def signup():
             c.execute("INSERT INTO users VALUES('"+email+"','"+password+"', '"+name+"')")
             conn.commit()
             conn.close()
-            msg = 'Dados enviados...'
+            return jsonify({'mensagem':'Dados enviados'})
         else:
-            msg = 'Campos não preenchidos corretamente'
-    return render_template("signup.html", msg=msg)
+            return jsonify({'mensagem':'Campos não preenchidos corretamente'})"""
+    return render_template("signup.html")
 
 @app.route('/entrada/login', methods = ['GET', 'POST'])
 def login():
     r = None
-    error = None
     if request.method == 'POST':
         email = request.form['email']
         password = request.form['password']
@@ -44,9 +46,8 @@ def login():
         for i in r:
             if email == i[0] and password == i[1]:
                 return redirect('http://127.0.0.1:5000/organizacao')
-        error = 'username ou password incorretos'
-        return render_template("login.html", error=error)
-    return render_template("login.html", error=error)
+        return jsonify({'erro':'username ou password incorretos'})
+    return render_template("login.html")
 
 @app.route('/organizacao')
 def organizacao():
@@ -54,7 +55,7 @@ def organizacao():
 
 @app.route('/organizacao/newatletica', methods = ['GET', 'POST'])
 def new_atletica():
-    msg = None
+    msg = ''
     if request.method == 'POST':
         if (request.form['nomeatletica'] == "") or (request.form['curso'] == ""):
             msg = 'Informações obrigatorias faltando serem preenchidas:\nNome da Atlética\nCurso\nDiretor'
@@ -71,7 +72,5 @@ def new_atletica():
             conn.commit()
             conn.close()
             msg = 'Dados enviados...'
-    return render_template("nova_atletica.html", msg=msg)
-
-if __name__=="__main__":
-    app.run(debug=True)
+        return jsonify({'msg':msg})
+    return render_template("nova_atletica.html")
