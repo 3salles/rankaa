@@ -1,7 +1,7 @@
 import { CardList } from "../../../components/CardList";
 import { AppLayout } from "../../../layouts/AppLayout";
 
-import { Container, Header} from "./styles";
+import { Container, Header, Button } from "./styles";
 
 export function AthleticList() {
   return (
@@ -9,6 +9,9 @@ export function AthleticList() {
       <Container>
         <Header>
           <h1>Atléticas</h1>
+          <Button>
+            Nova Atlética
+          </Button>
         </Header>
         <article>
           <CardList />

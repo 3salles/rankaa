@@ -23,14 +23,13 @@ export function Header({ isAdmin }: HeaderProps) {
     } else {
       history.push("/auth/signin");
     }
-    
   }
 
   return (
     <Container>
       <DesktopContainer>
         <Title>RANKAA</Title>
-        {!isAdmin &&  (
+        {!isAdmin && (
           <SearchBox>
             <FiSearch />
             <SearchInput
@@ -39,20 +38,18 @@ export function Header({ isAdmin }: HeaderProps) {
             />
           </SearchBox>
         )}
-        <Button onClick={handleOnClick}>
-          {isAdmin ? "Sair" : "Organização"}
-        </Button>
+        {!isAdmin && <Button onClick={handleOnClick}>Organização</Button>}
       </DesktopContainer>
       {!isAdmin && (
         <div id="mobile">
-        <SearchBox>
-          <FiSearch />
-          <SearchInput
-            type="text"
-            placeholder="Pesquise uma atlética, jogo ou modalidade"
-          />
-        </SearchBox>
-      </div>
+          <SearchBox>
+            <FiSearch />
+            <SearchInput
+              type="text"
+              placeholder="Pesquise uma atlética, jogo ou modalidade"
+            />
+          </SearchBox>
+        </div>
       )}
     </Container>
   );
