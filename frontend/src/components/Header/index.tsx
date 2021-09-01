@@ -10,6 +10,7 @@ import {
   SearchInput,
 } from "./styles";
 
+
 export function Header() {
   const history = useHistory()
   function handleOnClick() {

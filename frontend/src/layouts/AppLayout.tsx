@@ -4,15 +4,15 @@ import { Navbar } from "../components/Navbar";
 
 interface AppLayoutProps {
   children: ReactNode;
-  role: 'user' | 'admin'
+  isAdmin?: boolean;
 }
 
-export function AppLayout({ children, role }: AppLayoutProps) {
+export function AppLayout({ children, isAdmin }: AppLayoutProps) {
   return (
     <>
       <Header />
       {children}
-      <Navbar role={role} />
+      <Navbar isAdmin={isAdmin} />
     </>
   );
 }

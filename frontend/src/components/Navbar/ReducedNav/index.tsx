@@ -30,10 +30,10 @@ const adminOptions = [
 ];
 
 interface ReducedNavProps {
-  role: "user" | "admin";
+  isAdmin?: boolean;
 }
 
-export function ReducedNav({ role }: ReducedNavProps) {
+export function ReducedNav({ isAdmin}: ReducedNavProps) {
   const history = useHistory();
   const location = useLocation();
 
@@ -43,7 +43,7 @@ export function ReducedNav({ role }: ReducedNavProps) {
 
   return (
     <Container>
-      {role === "admin" ? (
+      {isAdmin ? (
         adminOptions.map((option) => (
           <Button
             key={option.id}

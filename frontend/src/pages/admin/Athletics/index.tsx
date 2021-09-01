@@ -1,3 +1,9 @@
+import { AppLayout } from "../../../layouts/AppLayout";
+
 export function AthleticList () {
-  return <h1>Atleticas</h1>
+  return (
+    <AppLayout isAdmin >
+      <h1>Atleticas</h1>
+    </AppLayout>
+  )
 }

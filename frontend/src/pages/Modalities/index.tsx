@@ -14,7 +14,7 @@ import { SportsCarousel } from "../../components/SportsCarousel";
 
 export function Modalities() {
   return (
-    <AppLayout role='user'>
+    <AppLayout >
       <SportButtonsContainer>
       <SportsCarousel />
       </SportButtonsContainer>

@@ -2,14 +2,14 @@ import { ReducedNav } from "./ReducedNav";
 import { Sidebar } from "./Sidebar";
 
 interface NavbarProps {
-  role: 'user' | 'admin'
+  isAdmin?: boolean;
 }
 
-export function Navbar({role}: NavbarProps) {
+export function Navbar({ isAdmin }: NavbarProps) {
   return (
     <>
-    <Sidebar />
-    <ReducedNav role={role}/>
+      <Sidebar />
+      <ReducedNav isAdmin={isAdmin} />
     </>
-  )
+  );
 }

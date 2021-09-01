@@ -21,7 +21,7 @@ import { RightButton } from "../../components/RightButton";
 
 export function Home() {
   return (
-    <AppLayout role='user'>
+    <AppLayout>
       <Container>
         <Banner>
           <img
