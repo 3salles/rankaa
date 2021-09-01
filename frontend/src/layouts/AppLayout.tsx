@@ -10,7 +10,7 @@ interface AppLayoutProps {
 export function AppLayout({ children, isAdmin }: AppLayoutProps) {
   return (
     <>
-      <Header />
+      <Header isAdmin={isAdmin} />
       {children}
       <Navbar isAdmin={isAdmin} />
     </>

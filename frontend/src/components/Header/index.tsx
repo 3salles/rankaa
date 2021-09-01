@@ -10,26 +10,41 @@ import {
   SearchInput,
 } from "./styles";
 
+interface HeaderProps {
+  isAdmin?: boolean;
+}
 
-export function Header() {
-  const history = useHistory()
+export function Header({ isAdmin }: HeaderProps) {
+  const history = useHistory();
+
   function handleOnClick() {
-    history.push('/auth/signin');
+    if (isAdmin) {
+      history.push("/");
+    } else {
+      history.push("/auth/signin");
+    }
+    
   }
+
   return (
     <Container>
       <DesktopContainer>
         <Title>RANKAA</Title>
-        <SearchBox>
-          <FiSearch />
-          <SearchInput
-            type="text"
-            placeholder="Pesquise uma atlética, jogo ou modalidade"
-          />
-        </SearchBox>
-        <Button onClick={handleOnClick}>Organização</Button>
+        {!isAdmin &&  (
+          <SearchBox>
+            <FiSearch />
+            <SearchInput
+              type="text"
+              placeholder="Pesquise uma atlética, jogo ou modalidade"
+            />
+          </SearchBox>
+        )}
+        <Button onClick={handleOnClick}>
+          {isAdmin ? "Sair" : "Organização"}
+        </Button>
       </DesktopContainer>
-      <div id="mobile">
+      {!isAdmin && (
+        <div id="mobile">
         <SearchBox>
           <FiSearch />
           <SearchInput
@@ -38,6 +53,7 @@ export function Header() {
           />
         </SearchBox>
       </div>
+      )}
     </Container>
   );
 }
