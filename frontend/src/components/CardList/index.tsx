@@ -1,17 +1,22 @@
 import { MdModeEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { Athletic } from "../Rank";
 
 import { Container, Team, ButtonsAction } from "./styles";
 
-export function CardList() {
+interface CardListProps {
+  athletic: Athletic;
+}
+
+export function CardList({ athletic}: CardListProps) {
   return (
     <Container>
       <Team>
         <img
-          src="https://img.icons8.com/color/50/000000/barcelona-fc.png"
-          alt="Atlética"
+          src={athletic.logo}
+          alt={athletic.name}
         />
-        <p>Atlética</p>
+        <p>{athletic.name}</p>
       </Team>
       <ButtonsAction>
         <button>
