@@ -23,7 +23,7 @@ import {
 
 export function Athletic() {
   return (
-    <AppLayout>
+    <AppLayout role='user'>
       <Container>
         <LogoContainer>
           <Logo src="https://img.icons8.com/color/96/000000/barcelona-fc.png" />

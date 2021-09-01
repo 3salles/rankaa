@@ -1,11 +1,15 @@
 import { ReducedNav } from "./ReducedNav";
 import { Sidebar } from "./Sidebar";
 
-export function Navbar() {
+interface NavbarProps {
+  role: 'user' | 'admin'
+}
+
+export function Navbar({role}: NavbarProps) {
   return (
     <>
     <Sidebar />
-    <ReducedNav />
+    <ReducedNav role={role}/>
     </>
   )
 }

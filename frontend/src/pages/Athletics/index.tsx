@@ -7,7 +7,7 @@ import athletics from '../../utils/athletics.json'
 
 export function Athletics () {
   return (
-    <AppLayout>
+    <AppLayout role='user'>
       <Container>
       <Amount>Inscritas: <strong>{athletics.length}</strong> </Amount>
       <List>
