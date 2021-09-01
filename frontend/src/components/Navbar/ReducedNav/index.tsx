@@ -17,16 +17,17 @@ const options = [
 const adminOptions = [
   {
     id: 0,
-    icon: <GiWhistle />,
-    name: "Modalidades",
-    route: "/admin/modalities",
-  },
-  {
-    id: 1,
     icon: <GiAttachedShield />,
     name: "Atléticas",
     route: "/admin/athletics",
   },
+  {
+    id: 1,
+    icon: <GiWhistle />,
+    name: "Modalidades",
+    route: "/admin/modalities",
+  },
+
   { id: 2, icon: <BsBarChartFill />, name: "Jogos", route: "/admin/games" },
   { id: 3, icon: <FiLogOut />, name: "Sair", route: "/" },
 ];
@@ -40,7 +41,11 @@ export function ReducedNav({ isAdmin }: ReducedNavProps) {
   const location = useLocation();
 
   function handleOnClick(selectedId: number) {
-    history.push(options[selectedId].route);
+    if (isAdmin) {
+      history.push(adminOptions[selectedId].route);
+    } else {
+      history.push(options[selectedId].route);
+    }
   }
 
   return (
