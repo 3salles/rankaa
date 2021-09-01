@@ -18,11 +18,7 @@ export function Header({ isAdmin }: HeaderProps) {
   const history = useHistory();
 
   function handleOnClick() {
-    if (isAdmin) {
-      history.push("/");
-    } else {
-      history.push("/auth/signin");
-    }
+    history.push("/auth/signin");
   }
 
   return (
