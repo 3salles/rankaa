@@ -4,19 +4,26 @@ import { Athletic } from "../Rank";
 
 import { Container, Team, ButtonsAction } from "./styles";
 
-interface CardListProps {
-  athletic: Athletic;
+interface Sport {
+  id: number;
+  name: string;
+  icon: string;
 }
 
-export function CardList({ athletic}: CardListProps) {
+interface CardListProps {
+  athletic?: Athletic;
+  sport?: Sport;
+}
+
+export function CardList({ athletic, sport }: CardListProps) {
   return (
     <Container>
       <Team>
         <img
-          src={athletic.logo}
-          alt={athletic.name}
+          src={athletic?.logo || sport?.icon}
+          alt={athletic?.name || sport?.name}
         />
-        <p>{athletic.name}</p>
+        <p>{athletic?.name || sport?.name}</p>
       </Team>
       <ButtonsAction>
         <button>

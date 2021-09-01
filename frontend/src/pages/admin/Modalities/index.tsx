@@ -1,21 +1,22 @@
-import { CardList } from "../../../components/CardList";
 import { AppLayout } from "../../../layouts/AppLayout";
+import { CardList } from "../../../components/CardList";
 
 import { Container, Header, Button } from "./styles";
 
-import athletics from "../../../utils/athletics.json";
+import sports from "../../../utils/sports.json";
 
-export function AthleticList() {
+
+export function ModalitiesList() {
   return (
     <AppLayout isAdmin>
       <Container>
         <Header>
-          <h1>Atléticas</h1>
+          <h1>Modalidades</h1>
           <Button>Cadastrar</Button>
         </Header>
         <article>
-          {athletics.map((athletic) => (
-            <CardList key={athletic.id} athletic={athletic} />
+          {sports.map((sport) => (
+            <CardList key={sport.id} sport={sport} />
           ))}
         </article>
       </Container>

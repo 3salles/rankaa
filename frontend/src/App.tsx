@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from 'react-router-dom';
 import { AthleticList } from './pages/admin/Athletics';
+import { ModalitiesList } from './pages/admin/Modalities';
 import { Athletic } from './pages/Athletic';
 import { Athletics } from './pages/Athletics';
 import { Login } from './pages/auth/Login';
@@ -23,6 +24,7 @@ export function App() {
       <Route  path="/auth/signin" exact component={Login} />
       <Route  path="/auth/signup" exact component={Register} />
       <Route path="/admin/athletics" exact component={AthleticList} />
+      <Route path="/admin/modalities" exact component={ModalitiesList} />
     </Switch>
     </BrowserRouter>
     </>
