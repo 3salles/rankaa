@@ -1,86 +1,113 @@
+from app import app, spec
+from itertools import count
+from typing import Optional
+from flask import request, jsonify
+from flask_pydantic_spec import Request, Response
+from pydantic import BaseModel, Field
+from tinydb import TinyDB, Query
 
 
-"""from app import app
-from flask import json, render_template, request, redirect, jsonify
-import sqlite3
+db_users = TinyDB('users.json')
+db_atleticas = TinyDB('atleticas.json')
+c = count()
+d = count()
 
-app.secret_key = 'mykey'
+class User(BaseModel):
+    id: Optional[int] = Field(default_factory=lambda:next(c))
+    name: str
+    email: str
+    password: str
 
-#Home - a pagina inicial da API
-@app.route('/')
-def home():
-    return 'HOME'
+class Login(BaseModel):
+    email: str
+    password: str
 
-#Entrada - Página acessando a Organização (Signup/Login)
-def entrada():
-    #Rota de 
-    return 'ENTRADA'
+class Atletica(BaseModel):
+    id: Optional[int] = Field(default_factory=lambda:next(d))
+    name: str
+    curso: str
+    email: str
+    instagram: str
+    facebook: str
+    twitter: str
+    number: str
 
-#SigUp - Cadastro de um novo organizador
-@app.route('/entrada/signup', methods=['GET', 'POST'])
-def signup():
-    if request.method == 'POST':
-        dados = request.json
-        name = dados['name']
-        email = dados['email']
-        password = dados['password']
-        if (name != '') or (email != '') or (password != ''):
-            conn = sqlite3.connect("database.db")
-            c = conn.cursor()
-            c.execute("INSERT INTO users VALUES('"+email+"','"+password+"', '"+name+"')")
-            conn.commit()
-            conn.close()
-            return jsonify({'mensagem':'Dados enviados'})
+class Atleticas(BaseModel):
+    atleticas: list[Atletica]
+
+#HOME - Página inicial (GET)
+@app.get('/')
+def get_home():
+    return jsonify({'mensagem':'HOME'})
+
+#Entrada - Página para acessar Login e Signup (GET)
+@app.get('/enter/')
+def get_enter():
+    return jsonify({'mensagem':'ENTRADA'})
+
+#Signup - Página de cadastro (GET, POST)
+@app.get('/enter/signup')
+def get_signup():
+    return jsonify({'mensagem':'SIGNUP'})
+
+@app.post('/enter/signup/')
+@spec.validate(body=Request(User), resp=Response(HTTP_201=User))
+def post_signup():
+    body = request.context.body.dict()
+    if (body['email'] != "") and (body['name'] != "") and (body['password'] != ""):
+        aut = db_users.search(Query().email == body['email'])
+        if len(aut) == 0:
+            db_users.insert(body)
+            return jsonify({'mensagem':'Dados cadastrados'})
         else:
-            return jsonify({'mensagem':'Dados não enviados'})
+            return jsonify({'mensagem':'Email inválido'})
     else:
-        return 'SIGNUP'
+        return  jsonify({'mensagem':'Dados incompletos'})
 
-#Login - Login de um usuário ja cadastrado
-@app.route('/entrada/login', methods = ['GET', 'POST'])
-def login():
-    r = None
-    if request.method == 'POST':
-        dados = request.json
-        email = dados['email']
-        password = dados['password']
-        if (email != "") or (password != ""):
-            conn = sqlite3.connect("database.db")
-            c = conn.cursor()
-            c.execute("SELECT * FROM users WHERE email = '"+email+"' and password = '"+password+"'")
-            r = c.fetchall()
-            for i in r:
-                if email == i[0] and password == i[1]:
-                    return jsonify ({'caminho': 'http://127.0.0.1:5000/organizacao'})
-            return jsonify({'mensagem':'Username ou password incorretos'})
+#Login - Página para o login (GET, POST)
+@app.get('/enter/login/')
+def get_login():
+    return jsonify({'mensagem':'LOGIN'})
+
+@app.post('/enter/login/')
+@spec.validate(body=Request(Login), resp=Response(HTTP_201=Login))
+def post_login():
+    body = request.context.body.dict()
+    if (body['email'] != "") and (body['password'] != ""):
+        aut = db_users.search(Query().email == body['email'])
+        if len(aut) > 0 and aut[0]['password'] == body['password']:
+            return jsonify({'mensagem':'Direcionar a pagina do organizador...'})
         else:
-            return jsonify({'mensagem':'Dados não enviados'})
+            return jsonify({'mensagem':'Email incompleto'})
     else:
-        return 'LOGIN'
+        return  jsonify({'mensagem':'Dados incompletos'})
 
-#Organização - Pagina inicial da organização
-@app.route('/organizacao')
-def organizacao():
-    return 'ORGANIZAÇÃO'
+#Organização - Página após o login (GET, POST, DELETE)
+@app.get('/organizacao/')
+def get_organizacao():
+    return jsonify({'messagem':'PAGINA ORGANIZADOR'})
 
-@app.route('/organizacao/newatletica', methods = ['GET', 'POST'])
-def new_atletica():
-    if request.method == 'POST':
-        dados = request.json
-        nome_atletica = dados['nome_atletica']
-        curso = dados['curso']
-        email = dados['email']
-        facebook = dados['facebook']
-        instagram = dados['instagram']
-        twitter = dados['twitter']
-        if (nome_atletica == "") or (curso == ""):
-            return jsonify({"mensagem":"dados incompletos"})
+#Cadastrar Nova Atlética - Página de cadastro de nova atlética
+@app.get('/organizacao/novatletica')
+def get_newatletica():
+    return jsonify(db_atleticas.all())
+
+@app.post('/organizacao/novatletica/')
+@spec.validate(body=Request(Atletica), resp=Response(HTTP_201=Atletica))
+def post_newatletica():
+    body = request.context.body.dict()
+    if (body['name'] != "") and (body['curso'] != ""):
+        aut = db_atleticas.search(Query().name == body['name'])
+        if len(aut) == 0:
+            db_atleticas.insert(body)
+            return jsonify({'mensagem':'Atlética cadastrada'})
         else:
-            conn = sqlite3.connect("database.db")
-            c = conn.cursor()
-            c.execute("INSERT INTO atleticas VALUES('"+nome_atletica+"','"+curso+"', '"+email+"', '"+facebook+"', '"+instagram+"', '"+twitter+"')")
-            conn.commit()
-            conn.close()
-            return jsonify(dados)
+            return jsonify({'mensagem':'Nome ja pertence a uma atlética'})
     else:
-        return 'NOVA ATLETICA'"""
+         return  jsonify({'mensagem':'Dados incompletos'})       
+
+@app.delete('/organizacao/novatletica/<int:id>')
+@spec.validate(resp=Response('HTTP_204'))
+def deletar_pessoa(id):
+    db_atleticas.remove(Query().id == id)
+    return jsonify({})
