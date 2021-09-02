@@ -1,4 +1,6 @@
-from app import app
+
+
+"""from app import app
 from flask import json, render_template, request, redirect, jsonify
 import sqlite3
 
@@ -81,4 +83,4 @@ def new_atletica():
             conn.close()
             return jsonify(dados)
     else:
-        return 'NOVA ATLETICA'
+        return 'NOVA ATLETICA'"""
