@@ -1,3 +1,4 @@
+import { useHistory } from "react-router-dom";
 import { AppLayout } from "../../../layouts/AppLayout";
 
 import {
@@ -12,6 +13,11 @@ import {
 } from "./styles";
 
 export function NewAthletic() {
+  const history = useHistory()
+  function handleOnCancel() {
+    history.push('/admin/athletics')
+  }
+
   return (
     <AppLayout isAdmin>
       <Container>
@@ -47,8 +53,8 @@ export function NewAthletic() {
             <Input type="text" placeholder="Ex.: @atletica" />
           </Section>
           <Buttons>
-            <CancelButton>Cancelar</CancelButton>
-            <SaveButton>Salvar</SaveButton>
+            <CancelButton onClick={handleOnCancel}>Cancelar</CancelButton>
+            <SaveButton type="submit">Salvar</SaveButton>
           </Buttons>
         </Form>
       </Container>

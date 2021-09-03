@@ -20,15 +20,23 @@ const adminOptions = [
     icon: <GiAttachedShield />,
     name: "Atléticas",
     route: "/admin/athletics",
+    create_route: "/admin/athletics/new",
   },
   {
     id: 1,
     icon: <GiWhistle />,
     name: "Modalidades",
     route: "/admin/modalities",
+    create_route: "/admin/modalities",
   },
 
-  { id: 2, icon: <BsBarChartFill />, name: "Jogos", route: "/admin/games" },
+  {
+    id: 2,
+    icon: <BsBarChartFill />,
+    name: "Jogos",
+    route: "/admin/games",
+    create_route: "/admin/games/new",
+  },
   { id: 3, icon: <FiLogOut />, name: "Sair", route: "/" },
 ];
 
@@ -54,7 +62,10 @@ export function ReducedNav({ isAdmin }: ReducedNavProps) {
         ? adminOptions.map((option) => (
             <Button
               key={option.id}
-              selected={option.route === location.pathname}
+              selected={
+                option.route === location.pathname ||
+                option.create_route === location.pathname
+              }
               onClick={() => handleOnClick(option.id)}
             >
               {option.icon}
