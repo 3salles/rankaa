@@ -12,7 +12,7 @@ export function ModalitiesList() {
       <Container>
         <Header>
           <h1>Modalidades</h1>
-          <Button>Cadastrar</Button>
+          {/* <Button>Cadastrar</Button> */}
         </Header>
         <article>
           {sports.map((sport) => (
