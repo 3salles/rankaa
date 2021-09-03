@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
+import { FaEye } from "react-icons/fa";
 
 import { AppLayout } from "../../../layouts/AppLayout";
 
@@ -17,6 +18,7 @@ import {
 } from "./styles";
 
 interface NewTeamFormData {
+  logo: string;
   name: string;
   course: string;
   email: string;
@@ -26,6 +28,7 @@ interface NewTeamFormData {
 }
 
 const newTeamFormaSchema = yup.object().shape({
+  logo: yup.string().required("Logo obrigatória"),
   name: yup.string().required("Nome da Atlética obrigatório"),
   course: yup.string().required("Nome do curso obrigatório"),
   email: yup.string().email("E-mail inválido"),
@@ -61,7 +64,18 @@ export function NewAthletic() {
         </Header>
         <Form onSubmit={handleSubmit(handleCreateAthletic)}>
           <Section>
-            <label>Logo</label>
+            <label>
+              Logo{" "}
+              <button>
+                <FaEye />
+              </button>
+            </label>
+            <Input
+              type="text"
+              placeholder="Cole aqui o link da logo"
+              {...register("logo")}
+            />
+            <p>{errors?.name?.message}</p>
           </Section>
           <Section>
             <label>Nome</label>

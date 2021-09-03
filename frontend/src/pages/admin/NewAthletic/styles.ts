@@ -26,6 +26,19 @@ export const Section = styled.div`
 
   > label {
     font-weight: 600;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  button {
+    background: 0;
+    color: white;
+  }
+
+  svg {
+    width: 16px;
+    height: 16px;
   }
 `
 
