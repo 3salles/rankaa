@@ -30,7 +30,6 @@ class Atletica(BaseModel):
     instagram: str
     facebook: str
     twitter: str
-    number: str
 
 class Atleticas(BaseModel):
     atleticas: list[Atletica]
