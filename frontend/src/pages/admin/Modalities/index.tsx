@@ -16,7 +16,7 @@ export function ModalitiesList() {
         </Header>
         <article>
           {sports.map((sport) => (
-            <CardList key={sport.id} sport={sport} />
+            <CardList key={sport.id} sport={sport} isSport />
           ))}
         </article>
       </Container>

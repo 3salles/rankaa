@@ -13,10 +13,10 @@ interface Sport {
 interface CardListProps {
   athletic?: Athletic;
   sport?: Sport;
-  isAthletic?: boolean;
+  isSport?: boolean;
 }
 
-export function CardList({ athletic, sport, isAthletic }: CardListProps) {
+export function CardList({ athletic, sport, isSport }: CardListProps) {
   return (
     <Container>
       <Team>
@@ -26,7 +26,7 @@ export function CardList({ athletic, sport, isAthletic }: CardListProps) {
         />
         <p>{athletic?.name || sport?.name}</p>
       </Team>
-      {isAthletic && (
+      {!isSport && (
         <ButtonsAction>
           <button>
             <MdModeEdit />

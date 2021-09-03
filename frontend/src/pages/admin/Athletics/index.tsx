@@ -15,7 +15,7 @@ export function AthleticList() {
         </Header>
         <article>
           {athletics.map((athletic) => (
-            <CardList key={athletic.id} athletic={athletic} isAthletic />
+            <CardList key={athletic.id} athletic={athletic} />
           ))}
         </article>
       </Container>
