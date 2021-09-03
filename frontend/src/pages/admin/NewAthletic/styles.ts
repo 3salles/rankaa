@@ -2,6 +2,7 @@ import styled from 'styled-components'
 
 export const Container = styled.section`
   padding: 0 2.25rem;
+  margin-bottom: 110px;
 `
 
 export const Header = styled.header`
@@ -21,7 +22,11 @@ export const Section = styled.div`
   color: white;
   display: flex;
   flex-direction: column;
-  gap: 0.2rem;
+  gap: 0.4rem;
+
+  > label {
+    font-weight: 600;
+  }
 `
 
 export const Input = styled.input`
