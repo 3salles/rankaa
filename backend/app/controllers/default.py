@@ -9,8 +9,10 @@ from tinydb import TinyDB, Query
 
 db_users = TinyDB('users.json')
 db_atleticas = TinyDB('atleticas.json')
+db_jogos = TinyDB('jogos.json')
 c = count()
 d = count()
+e = count()
 
 class User(BaseModel):
     id: Optional[int] = Field(default_factory=lambda:next(c))
@@ -34,10 +36,26 @@ class Atletica(BaseModel):
 class Atleticas(BaseModel):
     atleticas: list[Atletica]
 
+class Jogo(BaseModel):
+    id: Optional[int] = Field(default_factory=lambda:next(e))
+    modalidade: str
+    time1: str
+    placar1: Optional[int] = 0
+    placar2: Optional[int] = 0
+    finalizado: Optional[int] = 0
+    time2: str
+    local: str
+    day: int
+    month: int
+    hour: int
+    minutes: int
+
+
 #HOME - Página inicial (GET)
 @app.get('/')
 def get_home():
-    return jsonify({'mensagem':'HOME'})
+    aut = db_jogos.search(Query().finalizado == 0)
+    return jsonify(aut[0:4])
 
 #Entrada - Página para acessar Login e Signup (GET)
 @app.get('/enter/')
@@ -107,6 +125,25 @@ def post_newatletica():
 
 @app.delete('/organizacao/novatletica/<int:id>')
 @spec.validate(resp=Response('HTTP_204'))
-def deletar_pessoa(id):
+def deletar_neatletica(id):
     db_atleticas.remove(Query().id == id)
     return jsonify({})
+
+@app.get('/organizacao/novojogo/')
+def get_newgame():
+    return jsonify({'messagem':'PAGINA NOVO JOGO'})
+
+@app.post('/organizacao/novojogo/')
+@spec.validate(body=Request(Jogo), resp=Response(HTTP_201=Jogo))
+def post_newgame():
+    body = request.context.body.dict()
+    if (body['modalidade'] != "") and (body['time1'] != "") and (body['time2'] != ""):
+        aut1 = db_atleticas.search(Query().name == body['time1'])
+        aut2 = db_atleticas.search(Query().name == body['time2'])
+        if len(aut1) > 0 and len(aut2) > 0:
+            db_jogos.insert(body)
+            return jsonify({'mensagem':'Jogo Cadastrado'})
+        else:
+            return jsonify({'mensagem':'Atlética não existente'})
+    else:
+        jsonify({'mensagem':'Dados incompletos'})
