@@ -2,7 +2,6 @@ import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
-import { FaEye } from "react-icons/fa";
 
 import { AppLayout } from "../../../layouts/AppLayout";
 
@@ -65,10 +64,7 @@ export function NewAthletic() {
         <Form onSubmit={handleSubmit(handleCreateAthletic)}>
           <Section>
             <label>
-              Logo{" "}
-              <button>
-                <FaEye />
-              </button>
+              Logo
             </label>
             <Input
               type="text"
