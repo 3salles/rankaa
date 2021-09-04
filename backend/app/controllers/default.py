@@ -1,3 +1,4 @@
+from tinydb.queries import where
 from app import app, spec
 from itertools import count
 from typing import Optional
@@ -38,7 +39,7 @@ class Atleticas(BaseModel):
 
 class Jogo(BaseModel):
     id: Optional[int] = Field(default_factory=lambda:next(e))
-    modalidade: str
+    modalidade: int
     time1: str
     placar1: Optional[int] = 0
     placar2: Optional[int] = 0
@@ -54,8 +55,9 @@ class Jogo(BaseModel):
 #HOME - Página inicial (GET)
 @app.get('/')
 def get_home():
-    aut = db_jogos.search(Query().finalizado == 0)
-    return jsonify(aut[0:4])
+    aut1 = db_jogos.search(Query().finalizado == 0)
+    aut2 = db_jogos.search(Query().finalizado == 1)
+    return jsonify({'Proximos jogos':aut1[-1:-4:-1], 'Últimos jogos':aut2[-1:-4:-1]})
 
 #Entrada - Página para acessar Login e Signup (GET)
 @app.get('/enter/')
@@ -117,21 +119,22 @@ def post_newatletica():
         aut = db_atleticas.search(Query().name == body['name'])
         if len(aut) == 0:
             db_atleticas.insert(body)
-            return jsonify({'mensagem':'Atlética cadastrada'})
+            return jsonify(db_atleticas.all())
         else:
-            return jsonify({'mensagem':'Nome ja pertence a uma atlética'})
+            return jsonify({'mensagem':'Nome ja pertence a uma atlética'}, db_atleticas.all())
     else:
-         return  jsonify({'mensagem':'Dados incompletos'})       
+         return  jsonify({'mensagem':'Dados incompletos'}, db_atleticas.all())       
 
 @app.delete('/organizacao/novatletica/<int:id>')
 @spec.validate(resp=Response('HTTP_204'))
-def deletar_neatletica(id):
+def deletar_newatletica(id):
     db_atleticas.remove(Query().id == id)
-    return jsonify({})
+    return jsonify(db_atleticas.all())
 
+#Cadastrar Novo Jogo
 @app.get('/organizacao/novojogo/')
 def get_newgame():
-    return jsonify({'messagem':'PAGINA NOVO JOGO'})
+    return jsonify(db_jogos.all()[::-1])
 
 @app.post('/organizacao/novojogo/')
 @spec.validate(body=Request(Jogo), resp=Response(HTTP_201=Jogo))
@@ -142,8 +145,31 @@ def post_newgame():
         aut2 = db_atleticas.search(Query().name == body['time2'])
         if len(aut1) > 0 and len(aut2) > 0:
             db_jogos.insert(body)
-            return jsonify({'mensagem':'Jogo Cadastrado'})
+            return jsonify(db_jogos.all()[::-1])
         else:
-            return jsonify({'mensagem':'Atlética não existente'})
+            return jsonify({'mensagem':'Atlética não existente'}, db_jogos.all()[::-1])
     else:
-        jsonify({'mensagem':'Dados incompletos'})
+        return jsonify({'mensagem':'Dados incompletos'}, db_jogos.all()[::-1])
+
+@app.delete('/organizacao/novojogo/<int:id>')
+@spec.validate(resp=Response('HTTP_204'))
+def deletar_newgame(id):
+    db_jogos.remove(Query().id == id)
+    return jsonify(db_jogos.all()[::-1])
+
+@app.put('/organizacao/novojogo/<int:id><int:placar1><int:placar2>')
+@spec.validate(resp=Response(HTTP_201=Jogo))
+def put_newgame(id, placar1, placar2):
+    db_jogos.update({'placar1':placar1}, where('id') == id)
+    db_jogos.update({'placar2':placar2}, where('id') == id)
+    db_jogos.update({'finalizado':1}, where('id') == id)
+    return jsonify(db_jogos.all()[::-1])
+
+#Atléticas - Página das atléticas
+@app.get('/atleticas/<int:id>')
+def get_atleticas(id):
+    q = Query()
+    aut1 = db_atleticas.search(Query().id == id)
+    aut2 = db_jogos.search(((q.time1 == aut1[0]['name']) | (q.time2 == aut1[0]['name'])) & (q.finalizado == 0))
+    aut3 = db_jogos.search(((q.time1 == aut1[0]['name']) | (q.time2 == aut1[0]['name'])) & (q.finalizado == 1))
+    return jsonify({aut1[0]['name']:aut1}, {'Proximos jogos':aut2[-1:-4:-1]}, {'Ultimos jogos':aut3[-1:-4:-1]})
