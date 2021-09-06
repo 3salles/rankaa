@@ -1,63 +1,24 @@
-from tinydb.queries import where
+from app.fuctions.jogos import proximos_jogos, ultimos_jogos, proximos_jogos_modalidade, ultimos_jogos_modalidade, proximos_jogos_atletica, ultimos_jogos_atletica
 from app import app, spec
-from itertools import count
-from typing import Optional
+from app.dataset.classes import User, Login, Atletica, Jogo
 from flask import request, jsonify
 from flask_pydantic_spec import Request, Response
-from pydantic import BaseModel, Field
+from tinydb.queries import where
 from tinydb import TinyDB, Query
 
 
-db_users = TinyDB('users.json')
-db_atleticas = TinyDB('atleticas.json')
-db_jogos = TinyDB('jogos.json')
-c = count()
-d = count()
-e = count()
-
-class User(BaseModel):
-    id: Optional[int] = Field(default_factory=lambda:next(c))
-    name: str
-    email: str
-    password: str
-
-class Login(BaseModel):
-    email: str
-    password: str
-
-class Atletica(BaseModel):
-    id: Optional[int] = Field(default_factory=lambda:next(d))
-    name: str
-    curso: str
-    email: str
-    instagram: str
-    facebook: str
-    twitter: str
-
-class Atleticas(BaseModel):
-    atleticas: list[Atletica]
-
-class Jogo(BaseModel):
-    id: Optional[int] = Field(default_factory=lambda:next(e))
-    modalidade: int
-    time1: str
-    placar1: Optional[int] = 0
-    placar2: Optional[int] = 0
-    finalizado: Optional[int] = 0
-    time2: str
-    local: str
-    day: int
-    month: int
-    hour: int
-    minutes: int
+db_users = TinyDB(r"app\dataset\users.json")
+db_atleticas = TinyDB(r"app\dataset\atleticas.json")
+db_jogos = TinyDB(r"app\dataset\jogos.json")
+db_modalidades = TinyDB(r"app\dataset\modalidades.json")
 
 
 #HOME - Página inicial (GET)
 @app.get('/')
 def get_home():
-    aut1 = db_jogos.search(Query().finalizado == 0)
-    aut2 = db_jogos.search(Query().finalizado == 1)
-    return jsonify({'Proximos jogos':aut1[-1:-4:-1], 'Últimos jogos':aut2[-1:-4:-1]})
+    aut1 = proximos_jogos(db_jogos)
+    aut2 = ultimos_jogos(db_jogos)
+    return jsonify({'Proximos jogos':aut1[0:3], 'Últimos jogos':aut2[-1:-4:-1]})
 
 #Entrada - Página para acessar Login e Signup (GET)
 @app.get('/enter/')
@@ -170,6 +131,15 @@ def put_newgame(id, placar1, placar2):
 def get_atleticas(id):
     q = Query()
     aut1 = db_atleticas.search(Query().id == id)
-    aut2 = db_jogos.search(((q.time1 == aut1[0]['name']) | (q.time2 == aut1[0]['name'])) & (q.finalizado == 0))
-    aut3 = db_jogos.search(((q.time1 == aut1[0]['name']) | (q.time2 == aut1[0]['name'])) & (q.finalizado == 1))
+    aut2 = proximos_jogos_atletica(db_jogos, id)
+    aut3 = ultimos_jogos_atletica(db_jogos, id)
     return jsonify({aut1[0]['name']:aut1}, {'Proximos jogos':aut2[-1:-4:-1]}, {'Ultimos jogos':aut3[-1:-4:-1]})
+
+#Modalidade - Pagina das modalidades
+@app.get('/modalidade/<int:id>')
+def get_modalidades(id):
+    q = Query()
+    aut1 = db_modalidades.search(Query().id == id)
+    aut2 = proximos_jogos_modalidade(db_jogos, id)
+    aut3 = ultimos_jogos_modalidade(db_jogos, id)
+    return jsonify({aut1[0]["name"]:aut1}, {'Proximos jogos':aut2}, {'Ultimos jogos':aut3})
