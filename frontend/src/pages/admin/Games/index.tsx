@@ -17,7 +17,9 @@ export function GamesList () {
           <Button onClick={handleOnRegister}>Cadastrar</Button>
         </Header>
         <article>
-          <GameCardList />
+          {games.map((game) => (
+            <GameCardList key={game.id} game={game} />
+          ))}
         </article>
       </Container>
     </AppLayout>

@@ -1,5 +1,6 @@
 import { MdModeEdit } from "react-icons/md";
 import { RiDeleteBin6Line } from "react-icons/ri";
+import { GameData } from "../CardGame";
 
 import {
   Container,
@@ -11,28 +12,32 @@ import {
   DateContainer,
 } from "./styles";
 
-export function GameCardList() {
+interface GameCardListProps {
+  game: GameData;
+}
+
+export function GameCardList({ game }: GameCardListProps) {
   return (
     <Container>
       <SportContainer>
         <Sport
-          src="https://img.icons8.com/emoji/48/000000/basketball-emoji.png"
-          alt="Modalidade"
+          src={game?.sport?.logo}
+          alt={game?.sport?.name}
         />
         <DateContainer>
-          <p>22/07</p>
-          <span>13:45</span>
+          <p>{game?.date}</p>
+          <span>{game?.time}</span>
         </DateContainer>
       </SportContainer>
       <TeamContainer>
         <Team
-          src="https://img.icons8.com/color/50/000000/barcelona-fc.png"
-          alt="Atlética 1"
+          src={game?.opponents[0]?.avatar}
+          alt={game?.opponents[0]?.name}
         />
         <span>X</span>
         <Team
-          src="https://img.icons8.com/color/48/000000/chelsea-fc.png"
-          alt="Atlética 2"
+          src={game?.opponents[1]?.avatar}
+          alt={game?.opponents[1]?.name}
         />
       </TeamContainer>
       <ButtonsAction>
