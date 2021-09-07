@@ -17,6 +17,7 @@ import {
   CancelButton,
 } from "./styles";
 import { DropdownStyles } from "../../../components/Dropdown/styles";
+import { useState } from "react";
 interface NewGameFormData {
   modality: { label: string; value: string };
   team1: string;
@@ -31,7 +32,10 @@ function formatDate(date: any) {
 }
 
 const newGameFormSchema = yup.object().shape({
-  // modalidade: yup.string().required("Modalidade obrigatória"),
+  modality: yup.object().shape({
+    label: yup.string().required('Modalidade obrigatória'),
+    value: yup.string().required('Modalidade obrigatória')
+  }).required("Modalidade obrigatória"),
   team1: yup.string().required("Oponente obrigatório"),
   team2: yup.string().required("Oponente obrigatório"),
   date: yup
@@ -88,7 +92,7 @@ export function NewGame() {
             />
             )} />
             
-            <p>{errors?.name?.message}</p>
+            <p>{errors?.modality?.label?.message}</p>
           </Section>
           <Section>
             <label>Oponente 1</label>
@@ -120,9 +124,10 @@ export function NewGame() {
           <Section>
             <label>Horário</label>
             <Input
-              type="string"
+              type="time"
               placeholder="Selecione o horário"
               {...register("time")}
+              onChange={event => console.log(typeof(event.target.value))}
             />
             <p>{errors?.time?.message}</p>
           </Section>
