@@ -179,7 +179,7 @@ The Application will be avaible on `http://localhost:5000`.
 
 ## :page_facing_up: License
 
-This project uses [MIT]() lincense.
+This project uses [MIT](https://github.com/3salles/rankaa/blob/develop/LICENSE) license.
 
 ## :woman_technologist: :man_technologist: Authors
 
