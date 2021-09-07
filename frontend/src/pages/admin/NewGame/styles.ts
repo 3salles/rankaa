@@ -36,6 +36,32 @@ export const Input = styled.input`
   color: white;
 `
 
+export const ScoreSection = styled.div`
+  font-size: 1rem;
+  color: white;
+  display: flex;
+  flex-direction: column;
+  gap: 0.4rem;
+
+  > label {
+    font-weight: 600;
+  }
+
+  > div {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    input {
+      width: 100px;
+      background: 0;
+      border: 1px solid white;
+      padding: 0.2rem 0.3rem;
+      color: white;
+    }
+  }
+`
+
 export const Buttons = styled.div`
   display: flex;
   align-items: center;

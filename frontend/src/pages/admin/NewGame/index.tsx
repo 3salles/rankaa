@@ -15,6 +15,7 @@ import {
   Buttons,
   SaveButton,
   CancelButton,
+  ScoreSection,
 } from "./styles";
 import { DropdownStyles } from "../../../components/Dropdown/styles";
 import { useState } from "react";
@@ -152,6 +153,32 @@ export function NewGame() {
             />
             <p>{errors?.place?.message}</p>
           </Section>
+          {/* TODO: Just appear when it is edit section */}
+          <ScoreSection>
+            <label>Placar</label>
+            <div>
+            <Section>
+            <label>Oponente 1 </label>
+            <input
+              type="number"
+              placeholder="Placar"
+              {...register("score1")}
+            />
+            <p>{errors?.score1?.message}</p>
+          </Section>
+          <span>X</span>
+          <Section>
+            <label>Oponente 2 </label>
+            <input
+              type="number"
+              placeholder="Placar"
+              {...register("score2")}
+            />
+            <p>{errors?.score2?.message}</p>
+          </Section>
+            </div>
+            
+          </ScoreSection>
 
           <Buttons>
             <CancelButton onClick={handleOnCancel}>Cancelar</CancelButton>
