@@ -14,6 +14,7 @@ import {
   PasswordInput,
   Footer,
 } from "./styles";
+import { useHistory } from "react-router-dom";
 
 interface SignInFormData {
   email: string;
@@ -26,6 +27,8 @@ const signInFormSchema = yup.object().shape({
 });
 
 export function Login() {
+  const history = useHistory();
+
   const { register, handleSubmit, formState } = useForm({
     resolver: yupResolver(signInFormSchema),
     mode: "onChange",
@@ -40,6 +43,7 @@ export function Login() {
 
   const handleSignIn: SubmitHandler<SignInFormData> = async (values) => {
     console.log(values);
+    history.push('/admin/athletics')
   };
 
   return (

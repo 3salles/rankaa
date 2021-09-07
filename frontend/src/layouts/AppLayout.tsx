@@ -4,14 +4,15 @@ import { Navbar } from "../components/Navbar";
 
 interface AppLayoutProps {
   children: ReactNode;
+  isAdmin?: boolean;
 }
 
-export function AppLayout({ children }: AppLayoutProps) {
+export function AppLayout({ children, isAdmin }: AppLayoutProps) {
   return (
     <>
-      <Header />
+      <Header isAdmin={isAdmin} />
       {children}
-      <Navbar />
+      <Navbar isAdmin={isAdmin} />
     </>
   );
 }

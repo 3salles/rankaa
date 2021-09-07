@@ -10,33 +10,43 @@ import {
   SearchInput,
 } from "./styles";
 
-export function Header() {
-  const history = useHistory()
+interface HeaderProps {
+  isAdmin?: boolean;
+}
+
+export function Header({ isAdmin }: HeaderProps) {
+  const history = useHistory();
+
   function handleOnClick() {
-    history.push('/auth/signin');
+    history.push("/auth/signin");
   }
+
   return (
     <Container>
       <DesktopContainer>
         <Title>RANKAA</Title>
-        <SearchBox>
-          <FiSearch />
-          <SearchInput
-            type="text"
-            placeholder="Pesquise uma atlética, jogo ou modalidade"
-          />
-        </SearchBox>
-        <Button onClick={handleOnClick}>Organização</Button>
+        {!isAdmin && (
+          <SearchBox>
+            <FiSearch />
+            <SearchInput
+              type="text"
+              placeholder="Pesquise uma atlética, jogo ou modalidade"
+            />
+          </SearchBox>
+        )}
+        {!isAdmin && <Button onClick={handleOnClick}>Organização</Button>}
       </DesktopContainer>
-      <div id="mobile">
-        <SearchBox>
-          <FiSearch />
-          <SearchInput
-            type="text"
-            placeholder="Pesquise uma atlética, jogo ou modalidade"
-          />
-        </SearchBox>
-      </div>
+      {!isAdmin && (
+        <div id="mobile">
+          <SearchBox>
+            <FiSearch />
+            <SearchInput
+              type="text"
+              placeholder="Pesquise uma atlética, jogo ou modalidade"
+            />
+          </SearchBox>
+        </div>
+      )}
     </Container>
   );
 }

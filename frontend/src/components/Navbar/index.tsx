@@ -1,11 +1,15 @@
 import { ReducedNav } from "./ReducedNav";
 import { Sidebar } from "./Sidebar";
 
-export function Navbar() {
+interface NavbarProps {
+  isAdmin?: boolean;
+}
+
+export function Navbar({ isAdmin }: NavbarProps) {
   return (
     <>
-    <Sidebar />
-    <ReducedNav />
+      <Sidebar />
+      <ReducedNav isAdmin={isAdmin} />
     </>
-  )
+  );
 }
