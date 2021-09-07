@@ -3,6 +3,7 @@ import { AthleticList } from "./pages/admin/Athletics";
 import { GamesList } from "./pages/admin/Games";
 import { ModalitiesList } from "./pages/admin/Modalities";
 import { NewAthletic } from "./pages/admin/NewAthletic";
+import { NewGame } from "./pages/admin/NewGame";
 import { Athletic } from "./pages/Athletic";
 import { Athletics } from "./pages/Athletics";
 import { Login } from "./pages/auth/Login";
@@ -29,6 +30,7 @@ export function App() {
           <Route path="/admin/athletics/new" exact component={NewAthletic} />
           <Route path="/admin/modalities" exact component={ModalitiesList} />
           <Route path="/admin/games" exact component={GamesList} />
+          <Route path="/admin/games/new" exact component={NewGame} />
         </Switch>
       </BrowserRouter>
     </>

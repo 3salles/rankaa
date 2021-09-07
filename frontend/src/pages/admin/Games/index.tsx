@@ -4,11 +4,15 @@ import {Container, Header, Button} from './styles'
 
 import games from "../../../utils/games.json";
 import { GameCardList } from "../../../components/GameListCard";
+import { useHistory } from "react-router";
 
 export function GamesList () {
-  function handleOnRegister () {
+  const history = useHistory()
 
+  function handleOnRegister () {
+    history.push('/admin/games/new')
   }
+
   return (
     <AppLayout isAdmin>
       <Container>
