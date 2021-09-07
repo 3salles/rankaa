@@ -1,5 +1,6 @@
 import { BrowserRouter, Route, Switch } from "react-router-dom";
 import { AthleticList } from "./pages/admin/Athletics";
+import { GamesList } from "./pages/admin/Games";
 import { ModalitiesList } from "./pages/admin/Modalities";
 import { NewAthletic } from "./pages/admin/NewAthletic";
 import { Athletic } from "./pages/Athletic";
@@ -27,6 +28,7 @@ export function App() {
           <Route path="/admin/athletics" exact component={AthleticList} />
           <Route path="/admin/athletics/new" exact component={NewAthletic} />
           <Route path="/admin/modalities" exact component={ModalitiesList} />
+          <Route path="/admin/games" exact component={GamesList} />
         </Switch>
       </BrowserRouter>
     </>
