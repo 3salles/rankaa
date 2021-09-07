@@ -4,7 +4,7 @@ import { Athletic } from "../Rank";
 
 import { Container, Team, ButtonsAction } from "./styles";
 
-interface Sport {
+export interface Sport {
   id: number;
   name: string;
   icon: string;

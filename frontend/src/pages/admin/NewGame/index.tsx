@@ -2,6 +2,7 @@ import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
 import { SubmitHandler, useForm } from "react-hook-form";
+import ReactSelect from "react-select";
 
 import { AppLayout } from "../../../layouts/AppLayout";
 
@@ -15,9 +16,9 @@ import {
   SaveButton,
   CancelButton,
 } from "./styles";
-
+import { DropdownStyles } from "../../../components/Dropdown/styles";
 interface NewGameFormData {
-  modality: string;
+  modality: { label: string; value: string };
   team1: string;
   team2: string;
   date: string;
@@ -63,7 +64,12 @@ export function NewGame() {
     // Add toastfy
   };
 
-  console.log(new Date().toLocaleDateString())
+  const sports = [
+    { value: "chocolate", label: "Chocolate" },
+    { value: "strawberry", label: "Strawberry" },
+    { value: "vanilla", label: "Vanilla" },
+  ];
+
   return (
     <AppLayout isAdmin>
       <Container>
@@ -73,7 +79,11 @@ export function NewGame() {
         <Form onSubmit={handleSubmit(handleCreateAthletic)}>
           <Section>
             <label>Modalidade</label>
-
+            <ReactSelect
+              placeholder="Selecione uma modalidade"
+              options={sports}
+              styles={DropdownStyles}
+            />
             <p>{errors?.name?.message}</p>
           </Section>
           <Section>
@@ -97,7 +107,7 @@ export function NewGame() {
           <Section>
             <label>Dia</label>
             <Input
-              type="date"
+              type="string"
               placeholder="Digite a data"
               {...register("date")}
             />
@@ -106,7 +116,7 @@ export function NewGame() {
           <Section>
             <label>Horário</label>
             <Input
-              type="text"
+              type="time"
               placeholder="Selecione o horário"
               {...register("time")}
             />
