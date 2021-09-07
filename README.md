@@ -184,7 +184,7 @@ This project uses [MIT]() lincense.
 
 <p align="center">
   <a href="https://github.com/3salles">
-    <img src="hhttps://img.shields.io/badge/Beatriz%20Salles-Github-006994" alt="Beatriz Salles" />
+    <img src="https://img.shields.io/badge/Beatriz%20Salles-Github-darkblue" alt="Beatriz Salles" />
   </a>
   <a href="https://github.com/Delryson">
     <img src="https://img.shields.io/badge/Delryson%20Saraiva-Github-indigo" alt="Delryson Saraiva" />
