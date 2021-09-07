@@ -25,11 +25,21 @@ interface NewGameFormData {
   place: string;
 }
 
+function formatDate(date: any) {
+  return new Date(date).toLocaleDateString();
+}
+
 const newGameFormSchema = yup.object().shape({
   // modalidade: yup.string().required("Modalidade obrigatória"),
   team1: yup.string().required("Oponente obrigatório"),
   team2: yup.string().required("Oponente obrigatório"),
-  date: yup.string().required("Data obrigatória"),
+  date: yup
+    .date()
+    .min(
+      formatDate(new Date().toLocaleDateString()),
+      "Data deve ser acima do dia atual"
+    )
+    .required("Data obrigatória"),
   time: yup.string().required("Horário obrigatório"),
   place: yup.string().required("Local obrigatório"),
 });
@@ -53,6 +63,7 @@ export function NewGame() {
     // Add toastfy
   };
 
+  console.log(new Date().toLocaleDateString())
   return (
     <AppLayout isAdmin>
       <Container>
@@ -61,9 +72,7 @@ export function NewGame() {
         </Header>
         <Form onSubmit={handleSubmit(handleCreateAthletic)}>
           <Section>
-            <label>
-              Modalidade
-            </label>
+            <label>Modalidade</label>
 
             <p>{errors?.name?.message}</p>
           </Section>
@@ -88,7 +97,7 @@ export function NewGame() {
           <Section>
             <label>Dia</label>
             <Input
-              type="text"
+              type="date"
               placeholder="Digite a data"
               {...register("date")}
             />
@@ -112,7 +121,7 @@ export function NewGame() {
             />
             <p>{errors?.place?.message}</p>
           </Section>
-          
+
           <Buttons>
             <CancelButton onClick={handleOnCancel}>Cancelar</CancelButton>
             <SaveButton
