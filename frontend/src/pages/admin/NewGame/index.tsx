@@ -20,8 +20,8 @@ import { DropdownStyles } from "../../../components/Dropdown/styles";
 import { useState } from "react";
 interface NewGameFormData {
   modality: { label: string; value: string };
-  team1: string;
-  team2: string;
+  team1: { label: string; value: string };
+  team2: { label: string; value: string };
   date: string;
   time: string;
   place: string;
@@ -36,8 +36,14 @@ const newGameFormSchema = yup.object().shape({
     label: yup.string().required('Modalidade obrigatória'),
     value: yup.string().required('Modalidade obrigatória')
   }).required("Modalidade obrigatória"),
-  team1: yup.string().required("Oponente obrigatório"),
-  team2: yup.string().required("Oponente obrigatório"),
+  team1: yup.object().shape({
+    label: yup.string().required('Oponente 1 obrigatório'),
+    value: yup.string().required('Oponente 1 obrigatório')
+  }).required("Oponente 1 obrigatório"),
+  team2: yup.object().shape({
+    label: yup.string().required('Oponente 2 obrigatório'),
+    value: yup.string().required('Oponente 2 obrigatório')
+  }).required("Oponente 2 obrigatório"),
   date: yup
     .date()
     .min(
@@ -96,21 +102,27 @@ export function NewGame() {
           </Section>
           <Section>
             <label>Oponente 1</label>
-            <Input
-              type="text"
-              placeholder="Digite o oponente 1"
-              {...register("team1")}
+            <Controller name="team1" control={control} render={({field}) => (
+              <ReactSelect
+              {...field}
+              placeholder="Selecione o oponente 1"
+              options={sports}
+              styles={DropdownStyles}
             />
-            <p>{errors?.team1?.message}</p>
+            )} />
+            <p>{errors?.team1?.label?.message}</p>
           </Section>
           <Section>
             <label>Oponente 2</label>
-            <Input
-              type="text"
-              placeholder="Digite o oponente 2"
-              {...register("team2")}
+            <Controller name="team2" control={control} render={({field}) => (
+              <ReactSelect
+              {...field}
+              placeholder="Selecione o oponente 2"
+              options={sports}
+              styles={DropdownStyles}
             />
-            <p>{errors?.team2?.message}</p>
+            )} />
+            <p>{errors?.team2?.label?.message}</p>
           </Section>
           <Section>
             <label>Dia</label>
