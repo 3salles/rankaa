@@ -1,7 +1,7 @@
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import { yupResolver } from "@hookform/resolvers/yup";
-import { SubmitHandler, useForm } from "react-hook-form";
+import { SubmitHandler, useForm, Controller } from "react-hook-form";
 import ReactSelect from "react-select";
 
 import { AppLayout } from "../../../layouts/AppLayout";
@@ -47,7 +47,7 @@ const newGameFormSchema = yup.object().shape({
 
 export function NewGame() {
   const history = useHistory();
-  const { register, handleSubmit, formState } = useForm({
+  const { register, handleSubmit, formState, control } = useForm({
     resolver: yupResolver(newGameFormSchema),
     mode: "onChange",
   });
@@ -79,11 +79,15 @@ export function NewGame() {
         <Form onSubmit={handleSubmit(handleCreateAthletic)}>
           <Section>
             <label>Modalidade</label>
-            <ReactSelect
+            <Controller name="modality" control={control} render={({field}) => (
+              <ReactSelect
+              {...field}
               placeholder="Selecione uma modalidade"
               options={sports}
               styles={DropdownStyles}
             />
+            )} />
+            
             <p>{errors?.name?.message}</p>
           </Section>
           <Section>
@@ -107,7 +111,7 @@ export function NewGame() {
           <Section>
             <label>Dia</label>
             <Input
-              type="string"
+              type="date"
               placeholder="Digite a data"
               {...register("date")}
             />
@@ -116,7 +120,7 @@ export function NewGame() {
           <Section>
             <label>Horário</label>
             <Input
-              type="time"
+              type="string"
               placeholder="Selecione o horário"
               {...register("time")}
             />
