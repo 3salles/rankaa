@@ -15,4 +15,12 @@ export const DropdownStyles = {
   singleValue: (provided: any) => ({
     color: 'white',
   }),
+  menu: (provided: any) => ({
+    ...provided,
+    color: 'black',
+  }),
+  option: (provided: any, state: any) => ({
+    ...provided,
+    background: state.isSelected ? '#F4A58A' : '0',
+  }),
 };
