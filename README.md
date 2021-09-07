@@ -6,11 +6,11 @@
   <img src="https://img.shields.io/static/v1?label=Version&message=1.0&color=7159c1" alt="Version-1.0" />
   <img src="https://img.shields.io/static/v1?label=Desktop&message=Unfinished&color=orange" alt="Desktop-unfinished" />
   <img src="https://img.shields.io/static/v1?label=Mobile&message=Unfinished&color=FFA500" alt="Mobile-unfinished" />
-  <img src="https://img.shields.io/static/v1?label=Lincense&message=MIT&color=0000ff " alt="Lincense" />
+  <img src="https://img.shields.io/static/v1?label=Lincense&message=MIT&color=0000ff " alt="License" />
 </p>
 
 <p align="center">
-    This website was created during the subject Software Design and Development at UFMA
+    This website was created during the subject Software Design and Development at UFMA.
     <br />
     <br />
     <a href="README.md">🇺🇸English</a>
@@ -42,6 +42,7 @@
 ## :book: About The Project
 
 Rankaa is a website developed during the University subject Software Design and Development applying the concepts learned into classes.
+
 Rankaa was created to follow the university championship: the user can see games, modalities, teams and rank (by modality or general); the organizer can register, edit and delete games and teams.
 
 **Games:** The user can see date, time, place, the teams who going to play and the modality.
@@ -55,7 +56,7 @@ Rankaa was created to follow the university championship: the user can see games
 
 ### :art: Layout
 
-You can access the project's layout in links below:
+You can access the project's layout in link below:
 
 * [Layout](https://www.figma.com/file/1DAC897inORj3JpsyfI9Mi/RankAA?node-id=0%3A1)
 
@@ -76,12 +77,12 @@ Because of time, the creation of the mobile system was prioritized, so it may po
 
 ### :sparkles: Features
 
-  - [] Desktop Version
+  - [ ] Desktop Version
   - [x] Mobile Version
 
 ## :bricks: Installation
 
-This project use [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com), [Python](https://www.python.org), [Pipenv](https://pipenv.pypa.io/en/latest/), you will need them to build its dependencies.
+This project use [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com), [Python](https://www.python.org) and [Pipenv](https://pipenv.pypa.io/en/latest/), you will need them to build its dependencies.
 
 ### :construction: Prerequisites
 
@@ -119,7 +120,7 @@ Run the following command to see the application:
 $ yarn start
 ```
 
-The application will be available on `http://localhost:3000/`.
+The application will be available on `http://localhost:3000`.
 
 🚨 Remember to start the backend!
 
@@ -173,7 +174,7 @@ $ pipenv shell
 $ flask run
 ```
 
-The Application will be avaible on `http://localhost:5000/`.
+The Application will be avaible on `http://localhost:5000`.
 
 
 ## :page_facing_up: License
