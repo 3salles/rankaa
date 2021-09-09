@@ -16,8 +16,8 @@ class Jogo(BaseModel):
     cancelado: Optional[bool] = False
     wo_id: Optional[int] = None  
     local: str
-    data: datetime
-    has_edited: bool
+    data: Optional[datetime] = None
+    has_edited: Optional[bool] = False
     edited_at: Optional[datetime] = None
-    edited_by: int
+    edited_by: Optional[int] = None
     created_at: Optional[datetime] = datetime.now()
