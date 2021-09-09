@@ -9,3 +9,8 @@ def instala_rota(app):
         nova_modalidade = request.json
         response = modalidade.cadastra_modalidade(nova_modalidade)
         return response
+
+    @app.route('/modalidades', methods=["GET"])
+    def all_modalidade():
+        response = modalidade.get_modalidades()
+        return response
