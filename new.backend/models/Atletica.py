@@ -7,7 +7,7 @@ id_count = count()
 
 class Atletica(BaseModel):
     id: Optional[int] = Field(default_factory=lambda:next(id_count))
-    name: str
+    nome: str
     curso: str
     icon: str
     email: str
