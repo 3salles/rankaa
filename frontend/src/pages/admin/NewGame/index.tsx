@@ -76,10 +76,21 @@ export function NewGame() {
   };
 
   const sports = [
-    { value: "chocolate", label: "Chocolate" },
-    { value: "strawberry", label: "Strawberry" },
-    { value: "vanilla", label: "Vanilla" },
+    { value: "Fustsal", label: "Fustsal" },
+    { value: "Basquete", label: "Basquete" },
+    { value: "Vôlei", label: "Vôlei" },
+    { value: "Handball", label: "Handball" },
+    { value: "Xadrez", label: "Xadrez" },
+    { value: "Truco", label: "Truco" },
+    { value: "Sinuca", label: "Sinuca" },
+    { value: "Jogos Etílicos", label: "Jogos Etílicos" },
   ];
+
+  const teams = [
+    { value: "Chelsea", label: "Chelsea" },
+    { value: "Barcelona", label: "Barcelona" },
+    { value: "Liverpool", label: "Liverpool" },
+  ]
 
   return (
     <AppLayout isAdmin>
@@ -107,7 +118,7 @@ export function NewGame() {
               <ReactSelect
               {...field}
               placeholder="Selecione o oponente 1"
-              options={sports}
+              options={teams}
               styles={DropdownStyles}
             />
             )} />
@@ -119,7 +130,7 @@ export function NewGame() {
               <ReactSelect
               {...field}
               placeholder="Selecione o oponente 2"
-              options={sports}
+              options={teams}
               styles={DropdownStyles}
             />
             )} />
