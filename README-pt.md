@@ -53,6 +53,24 @@ Rankaa foi desenvolvido no intuito de acompanhar os campeonatos de atléticas da
 
 <!-- TODO: Add landpage print -->
 
+## :spiral_notepad: Diagrams
+
+* Use Case Diagram:
+
+  ![CasodeUsoAtualizadoRankaa](https://user-images.githubusercontent.com/67746021/132788949-2765f50f-771d-4a3a-a2de-5e3fb1bccee5.jpg)
+
+  * Class Diagram:
+
+  ![ClassesAtualizadoRankaa](https://user-images.githubusercontent.com/67746021/132789130-de71f177-0f02-4586-a939-ffe5e73530e1.jpg)
+
+  * Sequence Diagram:
+
+  ![DiagramaSequenciaRANKAA (1)](https://user-images.githubusercontent.com/67746021/132789806-4e81e70b-0911-4d03-bc86-af08361740b7.jpg)
+
+
+  * State  Diagram:
+
+  ![estadosRankaafinal](https://user-images.githubusercontent.com/67746021/132789537-3ecfd81c-4aae-4009-8c81-f9a3d655a1e0.JPG)
 ### :art: Layout
 
 Você pode encontrar o layout do projeto no link abaixo:
