@@ -1,46 +1,201 @@
-# Getting Started with Create React App
+<p align="center">
 
-This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
+  <h3 align="center">Rankaa</h3>
 
-## Available Scripts
+<p align="center">
+  <img src="https://img.shields.io/static/v1?label=Version&message=1.0&color=7159c1" alt="Version-1.0" />
+  <img src="https://img.shields.io/static/v1?label=Desktop&message=Unfinished&color=orange" alt="Desktop-unfinished" />
+  <img src="https://img.shields.io/static/v1?label=Mobile&message=Unfinished&color=FFA500" alt="Mobile-unfinished" />
+  <img src="https://img.shields.io/static/v1?label=Lincense&message=MIT&color=0000ff " alt="License" />
+</p>
 
-In the project directory, you can run:
+<p align="center">
+    This website was created during the subject Software Design and Development at UFMA.
+    <br />
+    <br />
+    <a href="README.md">🇺🇸English</a>
+    ·
+    <a href="README-pt.md">🇧🇷Portuguese</a>
+  </p>
+</p>
 
-### `yarn start`
+<!-- TABLE OF CONTENTS -->
+## 🗂 Table of Contents
 
-Runs the app in the development mode.\
-Open [http://localhost:3000](http://localhost:3000) to view it in the browser.
+* [About the Project](#book-about-the-project)
+  * [Diagrams](#spiral_notepad-diagrams)
+  * [Layout](#art-layout)
+  * [Technologies](#computer-technologies)
+  * [Features](#sparkles-features)
+* [Installation](#bricks-installation)
+  * [Prerequisites](#construction-prerequisites)
+  * [Front-end](#lipstick-front-end)
+    * [Installing Dependencies](#construction-installing-dependencies)
+    * [Running Front-end](#arrow_forward-running-front-end)
+  * [Back-end](#file_cabinet-back-end)
+    * [Installing Dependencies](#construction-installing-dependencies)
+    * [Setting Back-end](#wrench-setting-back-end)
+    * [Running Back-end](#arrow_forward-running-back-end)
+* [License](#page_facing_up-license)
+* [Authors](#woman_technologist-man_technologist-author)
 
-The page will reload if you make edits.\
-You will also see any lint errors in the console.
+## :book: About The Project
 
-### `yarn test`
+Rankaa is a website developed during the University subject Software Design and Development applying the concepts learned into classes.
 
-Launches the test runner in the interactive watch mode.\
-See the section about [running tests](https://facebook.github.io/create-react-app/docs/running-tests) for more information.
+Rankaa was created to follow the university championship: the user can see games, modalities, teams and rank (by modality or general); the organizer can register, edit and delete games and teams.
 
-### `yarn build`
+**Games:** The user can see date, time, place, the teams who going to play and the modality.
 
-Builds the app for production to the `build` folder.\
-It correctly bundles React in production mode and optimizes the build for the best performance.
+**University Team:** The user can see social medias, name, logo, course, registered modalities and ranking in each modality.
 
-The build is minified and the filenames include the hashes.\
-Your app is ready to be deployed!
+**Modalities:** The user can follow games and results by modality registered into the campionship.
+<!-- TODO: Add landpage print -->
 
-See the section about [deployment](https://facebook.github.io/create-react-app/docs/deployment) for more information.
+## :spiral_notepad: Diagrams
 
-### `yarn eject`
+### :art: Layout
 
-**Note: this is a one-way operation. Once you `eject`, you can’t go back!**
+You can access the project's layout in link below:
 
-If you aren’t satisfied with the build tool and configuration choices, you can `eject` at any time. This command will remove the single build dependency from your project.
+* [Layout](https://www.figma.com/file/1DAC897inORj3JpsyfI9Mi/RankAA?node-id=0%3A1)
 
-Instead, it will copy all the configuration files and the transitive dependencies (webpack, Babel, ESLint, etc) right into your project so you have full control over them. All of the commands except `eject` will still work, but they will point to the copied scripts so you can tweak them. At this point you’re on your own.
+Because of time, the creation of the mobile system was prioritized, so it may possible has bugs in desktop version.
 
-You don’t have to ever use `eject`. The curated feature set is suitable for small and middle deployments, and you shouldn’t feel obligated to use this feature. However we understand that this tool wouldn’t be useful if you couldn’t customize it when you are ready for it.
+🚨 You need have a [Figma](https://www.figma.com) account to acess the layout.
 
-## Learn More
+### :computer: Technologies
 
-You can learn more in the [Create React App documentation](https://facebook.github.io/create-react-app/docs/getting-started).
+* [TypeScript](https://www.typescriptlang.org)
+* [React.js](https://reactjs.org/docs/getting-started.html)
+* [Yarn](https://yarnpkg.com)
+* [Axios](https://axios-http.com/docs/intro)
+* [React-hook-forms](https://react-hook-form.com)
+* [Yup](https://github.com/jquense/yup)
+* [Flask](https://flask.palletsprojects.com/en/2.0.x/)
+* [TinyDB](https://tinydb.readthedocs.io/en/latest/)
 
-To learn React, check out the [React documentation](https://reactjs.org/).
+### :sparkles: Features
+
+  - [ ] Desktop Version
+  - [x] Mobile Version
+
+## :bricks: Installation
+
+This project use [Node.js](https://nodejs.org/en/), [Yarn](https://yarnpkg.com), [Python](https://www.python.org) and [Pipenv](https://pipenv.pypa.io/en/latest/), you will need them to build its dependencies.
+
+### :construction: Prerequisites
+
+Clone this project repository:
+```bash
+
+$ git clone https://github.com/3salles/rankaa.git
+
+# Enter in `rankaa` folder:
+
+$ cd rankaa
+```
+
+🚨 If you don't have git in your machine, you can install it [here](https://git-scm.com/downloads).
+
+## :lipstick: Front-end
+
+### :construction: Installing Dependencies
+
+In rankaa folder, open `frontend` folder:
+
+```bash
+$ cd frontend
+
+# And install dependencies by the following command:
+
+$ yarn install
+```
+
+### :arrow_forward: Running Front-end
+
+Run the following command to see the application:
+
+```bash
+$ yarn start
+```
+
+The application will be available on `http://localhost:3000`.
+
+🚨 Remember to start the backend!
+
+## :file_cabinet: Back-end
+
+### :construction: Instalando Dependências
+
+🚨 This project use Python 3.
+
+Inside rankaa folder, open `backend` folder:
+
+```bash
+$ cd backend
+
+# Install Pipenv if you don't have it:
+
+$ pip install pipenv
+```
+
+### :wrench: Setting Back-end
+
+Into `backend` folder, create a `.env` file:
+
+```bash
+$ touch .env
+```
+
+Add the following content into the `.env`:
+
+```
+FLASK_APP=
+FLASK_ENV=development
+```
+
+
+### :arrow_forward: Running Back-end
+
+In the terminal, active the environment with:
+
+```bash
+# To install dependencies
+
+$ pipenv install
+
+# To active virtual environment
+
+$ pipenv shell
+
+# To run backend
+
+$ flask run
+```
+
+The Application will be avaible on `http://localhost:5000`.
+
+
+## :page_facing_up: License
+
+This project uses [MIT](https://github.com/3salles/rankaa/blob/develop/LICENSE) license.
+
+## :woman_technologist: :man_technologist: Authors
+
+<p align="center">
+  <a href="https://github.com/3salles">
+    <img src="https://img.shields.io/badge/Beatriz%20Salles-Github-darkblue" alt="Beatriz Salles" />
+  </a>
+  <a href="https://github.com/Delryson">
+    <img src="https://img.shields.io/badge/Delryson%20Saraiva-Github-indigo" alt="Delryson Saraiva" />
+  </a>
+  <a href="https://github.com/josenbmesquita">
+    <img src="https://img.shields.io/badge/Jos%C3%A9%20Mesquita-Github-blue" alt="José Mesquita" />
+  </a>
+  <a href="https://github.com/Thalles2310">
+    <img src="https://img.shields.io/badge/Thallyson%20Gabriel-Github-purple" alt="Thallyson Gabriel" />
+  </a>
+</p>
+
+<p align="center">Developed with 💜</p>
