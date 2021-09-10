@@ -61,7 +61,8 @@ Rankaa foi desenvolvido no intuito de acompanhar os campeonatos de atléticas da
 
   * Class Diagram:
 
-  ![ClassesAtualizadoRankaa](https://user-images.githubusercontent.com/67746021/132789130-de71f177-0f02-4586-a939-ffe5e73530e1.jpg)
+  ![ClassesAtualizadoRankaa (2)](https://user-images.githubusercontent.com/67746021/132920803-81889e00-3123-4ef8-9de0-89bcb52abf95.jpg)
+
 
   * Sequence Diagram:
 
@@ -70,7 +71,8 @@ Rankaa foi desenvolvido no intuito de acompanhar os campeonatos de atléticas da
 
   * State  Diagram:
 
-  ![estadosRankaafinal](https://user-images.githubusercontent.com/67746021/132789537-3ecfd81c-4aae-4009-8c81-f9a3d655a1e0.JPG)
+  ![EstadosAtualizadoRankaa (3)](https://user-images.githubusercontent.com/67746021/132920873-5342420c-11dd-4f55-93c6-1ae4a8a553ed.jpg)
+
 ### :art: Layout
 
 Você pode encontrar o layout do projeto no link abaixo:
