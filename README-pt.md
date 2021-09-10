@@ -128,7 +128,7 @@ A aplicação estará disponível em `http://localhost:3000`.
 
 ### :construction: Instalando Dependências
 
-Dentro da pasta rankaa, abra a pasta `backend`:
+Dentro da pasta rankaa, abra a pasta `new.backend`:
 
 ```bash
 $ cd backend
@@ -140,7 +140,7 @@ $ pip install pipenv
 
 ### :wrench: Configurando o Back-end
 
-Dentro da pasta `backend`, crie um arquivo `.env`:
+Dentro da pasta `new.backend`, crie um arquivo `.env`:
 
 ```bash
 $ touch .env
@@ -148,7 +148,7 @@ $ touch .env
 Adicione o seguinte conteúdo neste arquivo:
 
 ```bash
-FLASK_APP=
+FLASK_APP=app.py
 FLASK_ENV=development
 ```
 

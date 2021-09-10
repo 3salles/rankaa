@@ -130,10 +130,10 @@ The application will be available on `http://localhost:3000`.
 
 🚨 This project use Python 3.
 
-Inside rankaa folder, open `backend` folder:
+Inside rankaa folder, open `new.backend` folder:
 
 ```bash
-$ cd backend
+$ cd new.backend
 
 # Install Pipenv if you don't have it:
 
@@ -142,7 +142,7 @@ $ pip install pipenv
 
 ### :wrench: Setting Back-end
 
-Into `backend` folder, create a `.env` file:
+Into `new.backend` folder, create a `.env` file:
 
 ```bash
 $ touch .env
@@ -151,7 +151,7 @@ $ touch .env
 Add the following content into the `.env`:
 
 ```
-FLASK_APP=
+FLASK_APP=app.py
 FLASK_ENV=development
 ```
 
