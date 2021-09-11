@@ -8,6 +8,7 @@ flask = "*"
 pydantic = "*"
 tinydb = "*"
 tinydb-serialization = "*"
+flask-cors = "*"
 
 [dev-packages]
 
