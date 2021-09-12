@@ -70,6 +70,7 @@ Rankaa was created to follow the university championship: the user can see games
   * State  Diagram:
 
   ![estadosRankaafinal](https://user-images.githubusercontent.com/67746021/132789537-3ecfd81c-4aae-4009-8c81-f9a3d655a1e0.JPG)
+  
 ### :art: Layout
 
 You can access the project's layout in link below:
